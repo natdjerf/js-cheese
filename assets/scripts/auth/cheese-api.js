@@ -14,7 +14,34 @@ const createBoard = (success, failure, data) => {
   .fail(failure);
 };
 
+const addToBoard = (success, failure, data) => {
+  $.ajax({
+    method: 'POST',
+    url: app.api + '/cheese_additions',
+    headers:{
+        Authorization: 'Token token=' + app.user.token,
+    },
+    data,
+  }).done(success)
+  .fail(failure);
+};
+
+const savedBoards = (success, failure) => {
+  $.ajax({
+    method: 'GET',
+    url: app.api + '/boards',
+    headers:{
+        Authorization: 'Token token=' + app.user.token,
+    },
+  }).done(success)
+  .fail(failure);
+};
+
+
+
 
 module.exports = {
-  createBoard
+  createBoard,
+  addToBoard,
+  savedBoards
 };

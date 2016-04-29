@@ -13,7 +13,31 @@ const createBoardFailure = (error) => {
   console.error(error);
 };
 
+const addToBoardSuccess = (data) => {
+  app.board = data.board;
+  console.log(data.board);
+};
+
+const addToBoardFailure = (error) => {
+  console.error(error);
+};
+
+const savedBoardsSuccess = (data) => {
+  app.board = data.board;
+  console.log(data);
+};
+
+const savedBoardsFailure = (error) => {
+  console.error(error);
+};
+
+
 module.exports= {
   createBoardSuccess,
-  createBoardFailure
+  createBoardFailure,
+  addToBoardSuccess,
+  addToBoardFailure,
+  savedBoardsSuccess,
+  savedBoardsFailure
+
 };

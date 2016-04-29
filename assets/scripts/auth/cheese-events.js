@@ -30,6 +30,26 @@ const cheeseHandlers = () => {
     console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
+  $('#add-cheese').on('submit', function (event) {
+    event.preventDefault();
+    console.log('Add to Board clicked.');
+    let data = this;
+    console.log(data);
+    // let data.board.board_id = app.board.id;
+    // data.board.user_id = app.user.id;
+    // cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
+  });
+  $('#saved-boards').on('submit', function (event) {
+    event.preventDefault();
+    console.log('Get Saved Boards clicked.');
+    cheeseApi.savedBoards(cheeseUi.savedBoardsSuccess, cheeseUi.savedBoardsFailure);
+    // let data.board.board_id = app.board.id;
+    // data.board.user_id = app.user.id;
+    // cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
+  });
+
+
+
 
 };
 

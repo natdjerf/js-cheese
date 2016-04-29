@@ -11,5 +11,6 @@ const cheeseEvents = require('./auth/cheese-events');
 $(() => {
   events.addHandlers();
   cheeseEvents.getCheeses();
+  cheeseEvents.cheeseHandlers();
   console.log('Page loaded!');
 });

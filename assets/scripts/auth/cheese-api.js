@@ -37,11 +37,22 @@ const savedBoards = (success, failure) => {
   .fail(failure);
 };
 
+const singleSavedBoard = (success, failure) => {
+  $.ajax({
+    method: 'GET',
+    url: app.api + '/boards/6 ',
+    headers:{
+        Authorization: 'Token token=' + app.user.token,
+    },
+  }).done(success)
+  .fail(failure);
+};
 
 
 
 module.exports = {
   createBoard,
   addToBoard,
-  savedBoards
+  savedBoards,
+  singleSavedBoard
 };

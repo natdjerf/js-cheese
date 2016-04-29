@@ -47,6 +47,11 @@ const cheeseHandlers = () => {
     // data.board.user_id = app.user.id;
     // cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
+  $('#single-saved-board').on('submit', function (event) {
+    event.preventDefault();
+    console.log('Get Details clicked.');
+    cheeseApi.singleSavedBoard(cheeseUi.savedBoardsSuccess, cheeseUi.savedBoardsFailure);
+  });
 
 
 

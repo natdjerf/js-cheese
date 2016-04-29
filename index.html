@@ -52,14 +52,16 @@
     </div>
     <div>
     <div class="create-board-section">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create-board-modal">
+      <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#create-board-modal">
       Create Board
       </button>
     </div>
     <div class="saved-boards">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saved-boards-modal">
+      <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#saved-boards-modal">
       My Saved Boards
       </button>
+      <div class="single-saved-board">
+        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#single-saved-board-modal">Get board details</a>
     </div>
     </div>
     <div class="cheese-section">
@@ -282,13 +284,14 @@
         <h4 class="modal-title" id="myModalLabel">My saved boards </h4>
       </div>
       <div class="modal-body">
+        saved boards here??
+      </div>
+      <div class="modal-footer">
         <form id="saved-boards">
           <div class="form-group">
           </div>
-          <button type="submit" class="btn btn-primary" id="saved-board-button">Search</button>
+          <button type="submit" class="btn btn-primary" id="saved-boards-button">Search</button>
         </form>
-      </div>
-      <div class="modal-footer">
         <a href="#" data-dismiss="modal" data-toggle="modal" >cancel</a>
       </div>
     </div>
@@ -296,6 +299,29 @@
 </div>
 <!-- End Saved Boards Modal -->
 
+<!-- Single Saved Board Modal -->
+<div class="modal fade" id="single-saved-board-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Details</h4>
+      </div>
+      <div class="modal-body">
+        cheeses here?
+      </div>
+      <div class="modal-footer">
+        <form id="single-saved-board">
+          <div class="form-group">
+          </div>
+          <button type="submit" class="btn btn-primary" id="single-saved-board-button">Search</button>
+        </form>
+        <a href="#" data-dismiss="modal" data-toggle="modal" >cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Single Saved Board Modal -->
 
 
 

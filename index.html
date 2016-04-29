@@ -62,26 +62,16 @@
           </div>
           <div class="modal-body">
             <!--Sign In Form -->
-            <form class="form-horizontal">
+            <form id="sign-in">
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                </div>
+                <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
               </div>
               <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                </div>
+                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10" id="sign-in">
-                  <button type="submit" class="btn btn-default">Sign in</button>
-                </div>
-                <!--End Sign In Form -->
-              </div>
+              <button type="submit" class="btn btn-primary" id="btn-submit">sign in</button>
             </form>
+            <!--End Sign In Form -->
           </div>
           <div class="modal-footer">
             don't have an account? create one here
@@ -91,6 +81,7 @@
     </div>
   </div>
 <!-- End Modal Sign In -->
+
 <!-- Modal Sign Up-->
 <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -101,34 +92,19 @@
       </div>
       <div class="modal-body">
         <!--Sign Up Form -->
-          <form class="form-horizontal">
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10" id="sign-up">
-                <button type="submit" class="btn btn-default">Sign up</button>
-              </div>
-              <!--End Sign Up Form -->
+        <form id="sign-up">
+          <div class="form-group">
+            <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
           </div>
+          <div class="form-group">
+            <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-submit">sign up</button>
         </form>
+        <!--End Sign Up Form -->
       </div>
       <div class="modal-footer">
         already have an account? sign in here
@@ -138,6 +114,7 @@
 </div>
 </div>
 <!-- End Modal Sign Up -->
+
 <!-- Modal Change Password-->
     <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -147,34 +124,25 @@
             <h4 class="modal-title" id="myModalLabel">sign out title</h4>
           </div>
           <div class="modal-body">
-            <!--Change Password Form -->
-            <form class="form-horizontal">
+            <form id="change-password">
               <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                </div>
+                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
               <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                </div>
+                <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
               </div>
-              <div class="form-group">
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10" id="change-password">
-                  <button type="submit" class="btn btn-default">Change Password</button>
-                </div>
-                <!--End Change Password Form -->
-          </div>
+              <button type="submit" class="btn btn-primary" id="btn-submit">change password</button>
+            </form>
           <div class="modal-footer">
             does this need a footer?
           </div>
         </div>
       </div>
-<!-- Modal Change Password-->
+    </div>
+  </div>
+<!-- End Modal Change Password-->
+
+<!-- Modal Change Password Success-->
 <div class="modal fade" id="change-password-success-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -186,9 +154,11 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>
+<!-- End Modal Change Password Success-->
+
 <!-- Modal Change Password Fail-->
 <div class="modal fade" id="change-password-fail-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
@@ -201,9 +171,11 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>
+<!-- Modal Change Password Fail-->
+
 <!-- Sign In Fail-->
 <div class="modal fade" id="change-password-fail-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
@@ -216,9 +188,10 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>
+<!-- Sign In Fail-->
 
 
 

@@ -20,6 +20,12 @@
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
             Sign Up
           </button>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-out-modal">
+            Sign Out
+          </button>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#change-password-modal">
+            Change Password
+          </button>
         </ul>
       </div><!-- Navbar-collapse -->
     </div><!-- End Nav Bar -->
@@ -74,7 +80,7 @@
             <!--End Sign In Form -->
           </div>
           <div class="modal-footer">
-            don't have an account? create one here
+            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal">Need to create an account? Sign up here.</a>
           </div>
         </div>
       </div>
@@ -107,7 +113,7 @@
         <!--End Sign Up Form -->
       </div>
       <div class="modal-footer">
-        already have an account? sign in here
+        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#sign-in-modal">Already have an account? Sign in here.</a>
       </div>
     </div>
   </div>
@@ -116,31 +122,54 @@
 <!-- End Modal Sign Up -->
 
 <!-- Modal Change Password-->
-    <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">sign out title</h4>
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">change password title</h4>
+      </div>
+      <div class="modal-body">
+        <!--Change Password Form -->
+        <form id="change-password">
+          <div class="form-group">
+            <input type="password" name="passwords[old]" class="form-control" id="exampleInputPassword1" placeholder="Current Password">
           </div>
-          <div class="modal-body">
-            <form id="change-password">
-              <div class="form-group">
-                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
-              </div>
-              <button type="submit" class="btn btn-primary" id="btn-submit">change password</button>
-            </form>
-          <div class="modal-footer">
-            does this need a footer?
+          <div class="form-group">
+            <input type="password" name="passwords[new]" class="form-control" id="exampleInputPassword1" placeholder="New Password">
           </div>
-        </div>
+          <button type="submit" class="btn btn-primary" id="btn-submit">change password</button>
+        </form>
+        <!--End Change Password Form -->
+      </div>
+      <div class="modal-footer">
       </div>
     </div>
   </div>
+</div>
 <!-- End Modal Change Password-->
+
+<!-- Sign Out Modal -->
+<div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Out Modal</h4>
+      </div>
+      <div class="modal-body">
+        <form id="sign-out">
+          <button type="submit" class="btn btn-primary" id="btn-logout">Sign Out</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Sign Out Modal -->
+
+
+
+
 
 <!-- Modal Change Password Success-->
 <div class="modal fade" id="change-password-success-modal" tabindex="-1" role="dialog">
@@ -151,8 +180,7 @@
         <h4 class="modal-title">Password Changed</h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">let's see</button>
       </div>
     </div>
   </div>
@@ -168,8 +196,7 @@
         <h4 class="modal-title">Password Not Changed</h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">let's see</button>
       </div>
     </div>
   </div>
@@ -177,21 +204,38 @@
 <!-- Modal Change Password Fail-->
 
 <!-- Sign In Fail-->
-<div class="modal fade" id="change-password-fail-modal" tabindex="-1" role="dialog">
+<div class="modal fade" id="sign-in-fail-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Sign In Failure</h4>
+        <h4 class="modal-title">The email address and password you entered did not match our records. Please double-check and try again!</h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#sign-in-modal">Back</button>
       </div>
     </div>
   </div>
 </div>
-<!-- Sign In Fail-->
+<!-- End Sign In Fail-->
+
+<!-- Sign Up Fail-->
+<div class="modal fade" id="sign-up-fail-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">The email address you entered has already been taken.</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal">Back</button>
+        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#sign-in-modal">Already have an account? Sign in here.</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Sign Up Fail-->
 
 
 

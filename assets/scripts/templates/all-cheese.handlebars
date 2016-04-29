@@ -1,0 +1,13 @@
+
+<div class="hard-cheese-section" data.id="hard">
+  {{#each cheeses}}
+    {{#each this}}
+      <div class="single-cheese" data-attribute="{{this.id}}">
+        <h2>{{this.name}}</h2>
+          <p>Milk type: {{this.milk_type}}</p>
+          <p>Country of origin: {{this.country_of_origin}}</p>
+          <p>Flavor profile: {{this.flavor}}</p>
+        </div>
+      {{/each}}
+  {{/each}}
+</div>

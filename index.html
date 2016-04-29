@@ -1,20 +1,163 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Cheese</title>
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">all cheese errythang</a>
+      </div>
+        <ul class="nav navbar-nav navbar-right">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Sign In
+          </button>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+            My Account
+          </button>
+        </ul>
+      </div><!-- Navbar-collapse -->
+    </div><!-- End Nav Bar -->
+  </nav>
+      <h1>more cheese please</h1>
+      <div class="jumbotron">
+        <div class="container">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.</p>
+        </div>
+      </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum.</p>
     </body>
+
+
+
+
+
+
+
+
+    <!-- Modal Sign Up-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">sign in title</h4>
+          </div>
+          <div class="modal-body">
+            <!--Sign In Form -->
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10" id="sign-in">
+                  <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+                <!--End Sign In Form -->
+                <!--Sign Up Form -->
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10" id="sign-up">
+                      <button type="submit" class="btn btn-default">Sign up</button>
+                    </div>
+                    <!--End Sign Up Form -->
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            don't have an account? create one here
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End Modal Sign Up -->
+<!-- Modal My Account-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">sign out title</h4>
+          </div>
+          <div class="modal-body">
+            <!--Change Password Form -->
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10" id="change-password">
+                  <button type="submit" class="btn btn-default">Change Password</button>
+                </div>
+                <!--End Change Password Form -->
+                <!--Sign Out Button -->
+                <div class="col-sm-offset-2 col-sm-10" id="sign-in">
+                  <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+                <!--End Sign Out Form -->
+          </div>
+          <div class="modal-footer">
+            does this need a footer?
+          </div>
+        </div>
+      </div>
+<!-- Modal My Account-->
 </html>

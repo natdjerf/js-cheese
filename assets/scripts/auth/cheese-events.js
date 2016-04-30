@@ -5,21 +5,31 @@ const cheeseUi = require('./cheese-ui');
 const getFormFields = require('../../../lib/get-form-fields');
 const app = require('../app-data.js');
 
-//  This section should probably be relocated
-let displayCheeses = function(cheeses){
-  let allCheeseTemplate = require('./../templates/all-cheese.handlebars');
-    $('.cheese-section').append(allCheeseTemplate({
-      cheeses
-    }));
-};
 
-let getCheeses = function(){
-  $.ajax({
-    url: "http://localhost:3000/cheeses",
-  }).done(function(cheeses){
-    displayCheeses(cheeses);
-  });
-};
+// If I try to use handlebars --
+//  This section should probably be relocated
+// add to board click event needs load when page is rendered
+
+// let displayCheeses = function(cheeses){
+//   let allCheeseTemplate = require('./../templates/all-cheese.handlebars');
+//     $('.cheese-section').append(allCheeseTemplate({
+//       cheeses
+//     }));
+//     $('.add-cheese-button').on('click', function (event) {
+//       event.preventDefault();
+//      --etc, etc..
+//    };
+// Phil used local storage..
+// localStorage.setItem('ID', $(this).attr('data-attribute'));
+
+// let getCheeses = function(){
+//   $.ajax({
+//     url: "http://localhost:3000/cheeses",
+//   }).done(function(cheeses){
+//     displayCheeses(cheeses);
+//     console.log(cheeses);
+//   });
+// };
 //
 
 const cheeseHandlers = () => {
@@ -28,32 +38,31 @@ const cheeseHandlers = () => {
     let data = getFormFields(this);
     data.board.user_id = app.user.id;
     console.log('Create Board clicked.');
-    cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
-  });
-  $('#add-cheese').on('submit', function (event) {
-    event.preventDefault();
-    console.log('Add to Board clicked.');
-    let data = this;
     console.log(data);
-    // let data.board.board_id = app.board.id;
-    // data.board.user_id = app.user.id;
-    // cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
+    cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
   $('#saved-boards').on('submit', function (event) {
     event.preventDefault();
     console.log('Get Saved Boards clicked.');
     cheeseApi.savedBoards(cheeseUi.savedBoardsSuccess, cheeseUi.savedBoardsFailure);
-    // let data.board.board_id = app.board.id;
+    // data.board.board_id = app.board.id;
     // data.board.user_id = app.user.id;
-    // cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
   $('#single-saved-board').on('submit', function (event) {
     event.preventDefault();
     console.log('Get Details clicked.');
-    cheeseApi.singleSavedBoard(cheeseUi.savedBoardsSuccess, cheeseUi.savedBoardsFailure);
+    cheeseApi.singleSavedBoard(cheeseUi.singleSavedBoardSuccess, cheeseUi.savedBoardFailure);
   });
-
-
+  $('.add-cheese-button').on('click', function (event) {
+   event.preventDefault();
+   console.log('Add to Board clicked.');
+   let data = getFormFields(this);
+   data.cheese_addition = {};
+   data.cheese_addition.cheese_id = $(event.target).closest('div').data('id');
+   data.cheese_addition.board_id = app.board.id;
+   console.log(data);
+   cheeseApi.addToBoard(cheeseUi.addToBoardSuccess,cheeseUi.addToBoardFailure, data);
+});
 
 
 };
@@ -65,6 +74,6 @@ const cheeseHandlers = () => {
 
 
 module.exports = {
-    getCheeses,
+    // getCheeses,
     cheeseHandlers
   };

@@ -40,13 +40,16 @@ const savedBoards = (success, failure) => {
 const singleSavedBoard = (success, failure) => {
   $.ajax({
     method: 'GET',
-    url: app.api + '/boards/6 ',
+    url: app.api + '/boards/13 ',
     headers:{
         Authorization: 'Token token=' + app.user.token,
     },
   }).done(success)
   .fail(failure);
 };
+
+
+
 
 
 

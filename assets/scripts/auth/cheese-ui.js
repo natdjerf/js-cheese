@@ -4,9 +4,8 @@ const app = require('../app-data.js');
 
 const createBoardSuccess = (data) => {
   app.board = data.board;
-  app.user = data.user;
-  console.log(data.user);
   console.log(data.board);
+  console.log(app.board);
 };
 
 const createBoardFailure = (error) => {
@@ -14,8 +13,7 @@ const createBoardFailure = (error) => {
 };
 
 const addToBoardSuccess = (data) => {
-  app.board = data.board;
-  console.log(data.board);
+  console.log(data);
 };
 
 const addToBoardFailure = (error) => {
@@ -25,6 +23,8 @@ const addToBoardFailure = (error) => {
 const savedBoardsSuccess = (data) => {
   app.board = data.board;
   console.log(data);
+  console.log(app.board.cheeses);
+
 };
 
 const savedBoardsFailure = (error) => {
@@ -34,6 +34,7 @@ const savedBoardsFailure = (error) => {
 const singleSavedBoardSuccess = (data) => {
   app.board = data.board;
   console.log(data);
+  console.log(data.board.cheeses);
 };
 
 const singleSavedBoardFailure = (error) => {

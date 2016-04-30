@@ -16,6 +16,10 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   app.user = data.user;
   console.log(data);
+  $(".change-pass-button").removeClass('hidden');
+  $(".sign-out-button").removeClass('hidden');
+  $(".sign-up-button").addClass('hidden');
+  $(".sign-in-button").addClass('hidden');
 };
 
 const signInFailure = (error) => {

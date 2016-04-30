@@ -1,5 +1,5 @@
 
-<div class="hard-cheese-section" data.id="hard">
+<div class="hard-cheese-section">
   {{#each cheeses}}
     {{#each this}}
       <div class="single-cheese" data-attribute="{{this.id}}">
@@ -7,9 +7,7 @@
           <p>Milk type: {{this.milk_type}}</p>
           <p>Country of origin: {{this.country_of_origin}}</p>
           <p>Flavor profile: {{this.flavor}}</p>
-          <form id="add-cheese">
-            <button type="submit" class="btn btn-primary" id="add-cheese-button">Add to Board</button>
-          </form>
+          <button type="submit" class="btn btn-primary add-cheese-button" data-family={{this.family}}>Add to Board</button>
         </div>
       {{/each}}
   {{/each}}

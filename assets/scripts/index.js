@@ -10,7 +10,14 @@ const cheeseEvents = require('./auth/cheese-events');
 // on document ready:
 $(() => {
   events.addHandlers();
-  cheeseEvents.getCheeses();
+  // cheeseEvents.getCheeses();
   cheeseEvents.cheeseHandlers();
   console.log('Page loaded!');
+  $(".change-pass-button").addClass('hidden');
+  $(".sign-out-button").addClass('hidden');
+  $(".sign-up-button").addClass('hidden');
+  $(".create-board-start").addClass('hidden');
+  $(".access-saved-boards").addClass('hidden');
+  $(".cheese").addClass('hidden');
+
 });

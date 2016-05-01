@@ -2,8 +2,13 @@
 
 const app = require('../app-data.js');
 
+let currentUser = {
+  id: undefined,
+  token:''
+};
+
+
 const signUpSuccess = (data) => {
-  app.user = data.user;
   console.log(data);
 };
 
@@ -14,12 +19,16 @@ const signUpFailure = (error) => {
 };
 
 const signInSuccess = (data) => {
-  app.user = data.user;
-  console.log(data);
+  currentUser.token = data.user.token;
+  currentUser.id = data.user.id;
+  console.log(currentUser);
+  $("#sign-in-modal").modal('hide');
   $(".change-pass-button").removeClass('hidden');
   $(".sign-out-button").removeClass('hidden');
   $(".sign-up-button").addClass('hidden');
   $(".sign-in-button").addClass('hidden');
+  $(".create-board-start").removeClass('hidden');
+  $(".access-saved-boards").removeClass('hidden');
 };
 
 const signInFailure = (error) => {
@@ -28,9 +37,9 @@ const signInFailure = (error) => {
   $('#sign-in-fail-modal').modal('show');
 };
 
-const signOutSuccess = (data) => {
-  app.user = null;
-  console.log(data);
+const signOutSuccess = () => {
+  currentUser.token = '';
+  currentUser.id = undefined;
   console.log('signed out');
 };
 
@@ -49,6 +58,7 @@ const failure = (error) => {
 
 module.exports= {
   app,
+  currentUser,
   signInSuccess,
   signInFailure,
   signUpSuccess,

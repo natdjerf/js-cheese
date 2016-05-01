@@ -3,9 +3,9 @@
 const app = require('../app-data.js');
 
 const createBoardSuccess = (data) => {
-  app.board = data.board;
   console.log(data.board);
-  console.log(app.board);
+  $("#create-board-modal").modal('hide');
+  $(".cheese").removeClass('hidden');
 };
 
 const createBoardFailure = (error) => {
@@ -14,6 +14,7 @@ const createBoardFailure = (error) => {
 
 const addToBoardSuccess = (data) => {
   console.log(data);
+  // the addition to the cheese addition table
 };
 
 const addToBoardFailure = (error) => {
@@ -22,9 +23,8 @@ const addToBoardFailure = (error) => {
 
 const savedBoardsSuccess = (data) => {
   app.board = data.board;
-  console.log(data);
-  console.log(app.board.cheeses);
-
+  // console.log(this.board);
+  $( "#saved-boards-modal" ).find( "p" ).text('please print');
 };
 
 const savedBoardsFailure = (error) => {

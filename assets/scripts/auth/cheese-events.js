@@ -4,6 +4,7 @@ const cheeseApi = require('./cheese-api');
 const cheeseUi = require('./cheese-ui');
 const getFormFields = require('../../../lib/get-form-fields');
 const app = require('../app-data.js');
+const ui = require('./user-ui');
 
 
 // If I try to use handlebars --
@@ -30,15 +31,14 @@ const app = require('../app-data.js');
 //     console.log(cheeses);
 //   });
 // };
-//
 
 const cheeseHandlers = () => {
   $('#create-board').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
-    data.board.user_id = app.user.id;
-    console.log('Create Board clicked.');
     console.log(data);
+    data.board.user_id = ui.currentUser.id;
+    console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
   $('#saved-boards').on('submit', function (event) {
@@ -61,6 +61,7 @@ const cheeseHandlers = () => {
    data.cheese_addition.cheese_id = $(event.target).closest('div').data('id');
    data.cheese_addition.board_id = app.board.id;
    console.log(data);
+   // the details of the board/cheese to the cheese addition table
    cheeseApi.addToBoard(cheeseUi.addToBoardSuccess,cheeseUi.addToBoardFailure, data);
 });
 

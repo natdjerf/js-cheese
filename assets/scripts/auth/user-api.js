@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app-data.js');
+const ui = require('./user-ui.js');
 
 const signUp = (success, failure, data) => {
   $.ajax({
@@ -23,9 +24,9 @@ const signIn = (success, failure, data) => {
 const signOut = (success, failure) => {
   $.ajax({
     method: 'DELETE',
-    url: app.api + '/sign-out/' + app.user.id,
+    url: app.api + '/sign-out/' + ui.currentUser.id,
     headers:{
-        Authorization: 'Token token=' + app.user.token,
+        Authorization: 'Token token=' + ui.currentUser.token,
     },
   }).done(success)
   .fail(failure);
@@ -34,9 +35,9 @@ const signOut = (success, failure) => {
 const changePassword = (success, failure, data) => {
   $.ajax({
     method: 'PATCH',
-    url: app.api + '/change-password/' + app.user.id,
+    url: app.api + '/change-password/' + ui.currentUser.id,
     headers:{
-        Authorization: 'Token token=' + app.user.token,
+        Authorization: 'Token token=' + ui.currentUser.token,
     },
     data,
   }).done(success)

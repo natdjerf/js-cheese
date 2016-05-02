@@ -112,6 +112,10 @@ const cheeseHandlers = () => {
     console.log('Edit Board clicked');
     cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);
   });
+  // $('#hard.add-cheese-button').on('click', function (event) {
+  //  event.preventDefault();
+  //  $("#hard").addClass('hidden');
+  // });
 };
 
 

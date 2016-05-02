@@ -13,9 +13,7 @@ $(() => {
   // cheeseEvents.getCheeses();
   cheeseEvents.cheeseHandlers();
   console.log('Page loaded!');
-  $(".change-pass-button").addClass('hidden');
-  $(".sign-out-button").addClass('hidden');
-  $(".sign-up-button").addClass('hidden');
+  $(".dropdown").addClass('hidden');
   $(".launch-create").addClass('hidden');
   $(".access-saved-boards").addClass('hidden');
   $(".cheese").addClass('hidden');

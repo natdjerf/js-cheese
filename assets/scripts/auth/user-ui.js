@@ -26,9 +26,7 @@ const signInSuccess = (data) => {
   currentUser.id = data.user.id;
   console.log(currentUser);
   $("#sign-in-modal").modal('hide');
-  $(".change-pass-button").removeClass('hidden');
-  $(".sign-out-button").removeClass('hidden');
-  $(".sign-up-button").addClass('hidden');
+  $(".dropdown").removeClass('hidden');
   $(".sign-in-button").addClass('hidden');
   $(".launch-create").removeClass('hidden');
   // $(".create-board-start").removeClass('hidden');
@@ -47,8 +45,7 @@ const signOutSuccess = () => {
   console.log('signed out');
   $(".cheese").addClass('hidden');
   // $(".logged-in-view").addClass('hidden');
-  $(".change-pass-button").addClass('hidden');
-  $(".sign-out-button").addClass('hidden');
+  $(".dropdown").addClass('hidden');
   $(".sign-in-button").removeClass('hidden');
 
 };

@@ -28,17 +28,19 @@
           <!--/.navbar-header-->
             <ul class="nav navbar-nav navbar-right">
               <button type="button" class="btn btn-primary btn-lg sign-in-button" data-toggle="modal" data-target="#sign-in-modal">
-              Sign In
+              Log In
               </button>
-              <button type="button" class="btn btn-primary btn-lg sign-up-button" data-toggle="modal" data-target="#sign-up-modal">
-              Sign Up
-              </button>
-              <button type="button" class="btn btn-primary btn-lg sign-out-button" data-toggle="modal" data-target="#sign-out-modal">
-              Sign Out
-              </button>
-              <button type="button" class="btn btn-primary btn-lg change-pass-button" data-toggle="modal" data-target="#change-password-modal">
-              Change Password
-              </button>
+              <!--Drop down -->
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#saved-boards-modal" data-toggle="modal">My Saved Boards</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li><a href="#change-password-modal" data-toggle="modal">Change Password</a></li>
+                <li><a href="#sign-out-modal" data-toggle="modal">Sign Out</a></li>
+              </ul>
+              </li>
+            <!--End Drop down -->
             </ul>
         </div>
       </nav>
@@ -62,19 +64,6 @@
     </div>
   </div>
 </div>
-
-<!-- This section is weird but it's going to be removed into buttons elsewhere -->
-<div class="logged-in-view section">
-    <div class="access-saved-boards section">
-      <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#saved-boards-modal">
-      My Saved Boards
-      </button>
-        <div class="single-saved-board">
-          <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#single-saved-board-modal">Get board details</a>
-        </div>
-    </div>
-</div>
-<!-- End of weird section -->
 
 <div class="all-cheese section">
 <!-- All Cheeses -->
@@ -146,11 +135,11 @@
   </div>
 <!-- Hard -->
 <!-- Semi Hard -->
-<div class="semi-hard-cheese section" id="semi-hard">
+<div class="semi-hard-cheese row section" id="semi-hard">
   <div class="container">
 
     <form id="add-maytag">
-      <div class="maytag-blue" data-id="6">
+      <div class="maytag-blue col-md-4" data-id="6">
         <h2>maytag blue</h2>
           <ul>
             <li>cow</li>
@@ -162,7 +151,7 @@
     </form>
 
     <form id="add-colby">
-      <div class="colby" data-id="7">
+      <div class="colby col-md-4" data-id="7">
         <h2>colby</h2>
           <ul>
             <li>cow</li>
@@ -174,7 +163,7 @@
     </form>
 
     <form id="add-cheddar">
-      <div class="cheddar" data-id="8">
+      <div class="cheddar col-md-4" data-id="8">
         <h2>cheddar</h2>
           <ul>
             <li>cow</li>
@@ -186,7 +175,7 @@
     </form>
 
     <form id="add-gouda">
-      <div class="gouda" data-id="9">
+      <div class="gouda col-md-4" data-id="9">
         <h2>gouda</h2>
           <ul>
             <li>cow</li>
@@ -198,7 +187,7 @@
     </form>
 
     <form id="add-provolone">
-      <div class="provolone" data-id="10">
+      <div class="provolone col-md-4" data-id="10">
         <h2>provolone</h2>
           <ul>
             <li>cow</li>
@@ -348,6 +337,17 @@
 <!-- Soft -->
 </div>
 <!-- End All Cheeses-->
+
+<!-- This section is weird but it's going to be removed into buttons elsewhere -->
+<div class="logged-in-view section">
+    <div class="access-saved-boards section">
+        <div class="single-saved-board">
+          <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#single-saved-board-modal">Get board details</a>
+        </div>
+    </div>
+</div>
+<!-- End of weird section -->
+
 </div>
 <div class="bottom" id="this-is-end">
   yo

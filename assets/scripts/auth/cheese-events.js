@@ -46,6 +46,7 @@ function scrollToID(id, speed){
 
 
 const cheeseHandlers = () => {
+  // create board
   $('#create-board').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
@@ -54,6 +55,7 @@ const cheeseHandlers = () => {
     console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
+  // get saved boards
   $('#saved-boards').on('submit', function (event) {
     event.preventDefault();
     console.log('Get Saved Boards clicked.');
@@ -61,11 +63,13 @@ const cheeseHandlers = () => {
     // data.board.board_id = app.board.id;
     // data.board.user_id = app.user.id;
   });
+  // get current board
   $('#single-saved-board').on('submit', function (event) {
     event.preventDefault();
     console.log('Get Details clicked.');
     cheeseApi.singleSavedBoard(cheeseUi.singleSavedBoardSuccess, cheeseUi.savedBoardFailure);
   });
+  // add to cheese_addition table
   $('.add-cheese-button').on('click', function (event) {
    event.preventDefault();
    console.log('Add to Board clicked.');
@@ -76,7 +80,8 @@ const cheeseHandlers = () => {
    console.log(data);
    // data = the details of the board/cheese ids to the cheese addition table
    cheeseApi.addToBoard(cheeseUi.addToBoardSuccess,cheeseUi.addToBoardFailure, data);
-});	// navigation click actions
+  });
+  // navigation click actions
 	$('.scroll-link').on('click', function(event){
 		event.preventDefault();
 		var sectionID = $(this).attr("data-id");
@@ -92,7 +97,12 @@ const cheeseHandlers = () => {
 		event.preventDefault();
 		$('#main-nav').toggleClass("open");
 	});
-
+  // delete board action
+  $('#delete-board').on('submit', function (event) {
+    event.preventDefault();
+    console.log('Delete Board clicked');
+    cheeseApi.deleteBoard(cheeseUi.deleteBoardSuccess, cheeseUi.deleteBoardFailure);
+  });
 };
 
 

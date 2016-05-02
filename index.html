@@ -58,7 +58,7 @@
         <div class="anatomy-desc sectiony">
           <p>Danish fontina cheesy grin cheesy grin. Smelly cheese macaroni cheese fondue ricotta macaroni cheese bavarian bergkase cow monterey jack. Bavarian bergkase cream cheese cottage cheese croque monsieur jarlsberg macaroni cheese fondue airedale. Ricotta cheddar.</p>
         </div>
-        <a href="#" class="scroll-link" data-id="create">Create</a>
+        <a href="#" class="scroll-link" data-id="create">Scroll Create</a>
     </div>
   </div>
 </div>
@@ -457,21 +457,18 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Sign Out Modal</h4>
+        <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
       </div>
       <div class="modal-body">
         <form id="sign-out">
           <button type="submit" class="btn btn-primary" id="btn-logout">Sign Out</button>
+          <a href="#" data-dismiss="modal" data-toggle="modal" >cancel</a>
         </form>
       </div>
     </div>
   </div>
 </div>
 <!-- End Sign Out Modal -->
-
-
-
-
 
 <!-- Modal Change Password Success-->
 <div class="modal fade" id="change-password-success-modal" tabindex="-1" role="dialog">
@@ -606,13 +603,33 @@
           </div>
           <button type="submit" class="btn btn-primary" id="single-saved-board-button">Search</button>
         </form>
+        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#delete-board-modal">Delete this board</a>
         <a href="#" data-dismiss="modal" data-toggle="modal" >cancel</a>
+      </div>
       </div>
     </div>
   </div>
 </div>
 <!-- End Single Saved Board Modal -->
 
+<!-- Delete Board Modal -->
+<div class="modal fade" id="delete-board-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+      </div>
+      <div class="modal-body">
+        <form id="delete-board">
+          <button type="submit" class="btn btn-primary" id="btn-delete">Delete</button>
+          <a href="#" data-dismiss="modal" data-toggle="modal" >cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Delete Board Modal -->
 
 
 

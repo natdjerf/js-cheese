@@ -40,7 +40,7 @@ const savedBoardsFailure = (error) => {
 
 const singleSavedBoardSuccess = (data) => {
   console.log(data);
-  // console.log(data.cheeses);
+  console.log(data.cheeses);
   for (let i = 0; i < data.cheeses.length; i++) {
       currentCheeses.push(data.cheeses[i].name);
       }
@@ -55,9 +55,23 @@ const singleSavedBoardFailure = (error) => {
   console.error(error);
 };
 
+const deleteBoardSuccess = () => {
+  currentBoard.board_id = undefined;
+  currentBoard.name = '';
+  currentCheeses = [];
+  $("#single-saved-board-modal").find( "p" ).text('');
+  $("#single-saved-board-modal").find( "h4" ).text('');
+  console.log('board deleted');
+};
+
+const deleteBoardFailure = (error) => {
+  console.error(error);
+};
 
 
 module.exports= {
+  currentBoard,
+  currentCheeses,
   createBoardSuccess,
   createBoardFailure,
   addToBoardSuccess,
@@ -66,6 +80,6 @@ module.exports= {
   savedBoardsFailure,
   singleSavedBoardSuccess,
   singleSavedBoardFailure,
-  currentBoard,
-  currentCheeses
+  deleteBoardSuccess,
+  deleteBoardFailure
 };

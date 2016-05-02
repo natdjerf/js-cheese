@@ -112,10 +112,22 @@ const cheeseHandlers = () => {
     console.log('Edit Board clicked');
     cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);
   });
-  // $('#hard.add-cheese-button').on('click', function (event) {
-  //  event.preventDefault();
-  //  $("#hard").addClass('hidden');
-  // });
+  $('#hard .add-cheese-button').on('click', function (event) {
+   event.preventDefault();
+   $("#hard").addClass('hidden');
+  });
+  $('#semi-hard .add-cheese-button').on('click', function (event) {
+   event.preventDefault();
+   $("#semi-hard").addClass('hidden');
+  });
+  $('#semi-soft .add-cheese-button').on('click', function (event) {
+   event.preventDefault();
+   $("#semi-soft").addClass('hidden');
+  });
+  $('#soft .add-cheese-button').on('click', function (event) {
+   event.preventDefault();
+   $("#soft").addClass('hidden');
+  });
 };
 
 

@@ -5,10 +5,16 @@
 
 body{
   font-family: Courier;
+  position: relative;
 }
 
+.landing {
+  position: relative;
+}
+
+
 .about {
-  background: url(http://s.iamafoodblog.com/wp-content/uploads/2015/04/how-to-make-the-ultimate-cheese-plate-5w.jpg) no-repeat center center;
+  // background: url(http://s.iamafoodblog.com/wp-content/uploads/2015/04/how-to-make-the-ultimate-cheese-plate-5w.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

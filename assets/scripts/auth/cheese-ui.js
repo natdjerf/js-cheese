@@ -1,12 +1,11 @@
 'use strict';
 
-const app = require('../app-data.js');
+// const app = require('../app-data.js');
 
 let currentBoard = {
   board_id: undefined,
 };
-let myBoards;
-let myCheeses;
+let currentCheeses = [];
 
 const createBoardSuccess = (data) => {
   currentBoard.board_id = data.board.id;
@@ -30,34 +29,20 @@ const addToBoardFailure = (error) => {
 
 const savedBoardsSuccess = (data) => {
   console.log(data);
-  // console.log(currentBoard.board_id.cheeses);
-  myBoards=currentBoard.board_id.cheeses ;
-  console.log(myBoards);
-
-
-//       for (let i = 0; i < data.length; i++) {
-//               myBoards.push(this.data.name[i]);
-//       }
-//     }
-//   $( "#saved-boards-modal" ).find( "p" ).text(data);
-// };
 };
-
-
 
 const savedBoardsFailure = (error) => {
   console.error(error);
 };
 
 const singleSavedBoardSuccess = (data) => {
-  console.log(data.board);
-  myCheeses = data.board;
-  console.log(myCheeses);
-  console.log(myCheeses.cheeses);
-
-
   console.log(data);
-  console.log(data.board.cheeses);
+  // console.log(data.cheeses);
+  for (let i = 0; i < data.cheeses.length; i++) {
+      currentCheeses.push(data.cheeses[i].name);
+      }
+  console.log(currentCheeses);
+  // $( "#saved-boards-modal" ).find( "p" ).text(myBoard);
 };
 
 const singleSavedBoardFailure = (error) => {
@@ -76,5 +61,5 @@ module.exports= {
   singleSavedBoardSuccess,
   singleSavedBoardFailure,
   currentBoard,
-  myCheeses
+  currentCheeses
 };

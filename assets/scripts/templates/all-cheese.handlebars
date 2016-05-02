@@ -1,14 +1,21 @@
 
-<div class="hard-cheese-section">
-  {{#each cheeses}}
-    {{#each this}}
-      <div class="single-cheese" data-attribute="{{this.id}}">
-        <h2>{{this.name}}</h2>
-          <p>Milk type: {{this.milk_type}}</p>
-          <p>Country of origin: {{this.country_of_origin}}</p>
-          <p>Flavor profile: {{this.flavor}}</p>
-          <button type="submit" class="btn btn-primary add-cheese-button" data-family={{this.family}}>Add to Board</button>
-        </div>
-      {{/each}}
+
+<div class="cheese section">
+  <!--Hard -->
+    {{#each cheeses}}
+      <div class="{{this.family}}-cheese section">
+        <div class="container">
+        <form id="add-{{this.name}}">
+          <div class="{{this.name}}" data-id="{{this.id}}">
+              <h2>{{this.name}}</h2>
+              <p>Milk type: {{this.milk_type}}</p>
+              <p>Country of origin: {{this.country_of_origin}}</p>
+              <p>Flavor profile: {{this.flavor}}</p>
+            <button type="submit" name="cheese[{{this.id}}]" class="btn btn-primary add-cheese-button">Add to Board</button>
+          </div>
+        </form>
+      </div>
+    </div>
   {{/each}}
+
 </div>

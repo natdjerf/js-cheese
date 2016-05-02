@@ -17,17 +17,7 @@ const createBoard = (success, failure, data) => {
   .fail(failure);
 };
 
-const addToBoard = (success, failure, data) => {
-  $.ajax({
-    method: 'POST',
-    url: app.api + '/cheese_additions',
-    headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
-    },
-    data,
-  }).done(success)
-  .fail(failure);
-};
+
 
 const savedBoards = (success, failure) => {
   $.ajax({
@@ -82,7 +72,7 @@ const editBoard = (success, failure, data) => {
 
 module.exports = {
   createBoard,
-  addToBoard,
+  // addToBoard,
   savedBoards,
   singleSavedBoard,
   deleteBoard,

@@ -7,8 +7,6 @@ let currentUser = {
   token:''
 };
 
-
-
 const signUpSuccess = (data) => {
   console.log(data);
   $("#sign-up-modal").modal('hide');

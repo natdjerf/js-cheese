@@ -4,11 +4,14 @@
 
 let currentBoard = {
   board_id: undefined,
+  name: '',
 };
 let currentCheeses = [];
 
 const createBoardSuccess = (data) => {
   currentBoard.board_id = data.board.id;
+  console.log(currentBoard);
+  currentBoard.name = data.board.name;
   console.log(currentBoard);
   $("#create-board-modal").modal('hide');
   $(".cheese").removeClass('hidden');
@@ -42,7 +45,10 @@ const singleSavedBoardSuccess = (data) => {
       currentCheeses.push(data.cheeses[i].name);
       }
   console.log(currentCheeses);
-  // $( "#saved-boards-modal" ).find( "p" ).text(myBoard);
+  for (var i = 0; i < currentCheeses.length; i++) {
+    $("#single-saved-board-modal").find( "p" ).text('Cheeses:  ' + currentCheeses);
+    $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
+  }
 };
 
 const singleSavedBoardFailure = (error) => {

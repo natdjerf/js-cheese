@@ -103,6 +103,15 @@ const cheeseHandlers = () => {
     console.log('Delete Board clicked');
     cheeseApi.deleteBoard(cheeseUi.deleteBoardSuccess, cheeseUi.deleteBoardFailure);
   });
+  // edit board name
+  $('#edit-board').on('submit', function (event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    data.board.user_id = ui.currentUser.id;
+    console.log(data);
+    console.log('Edit Board clicked');
+    cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);
+  });
 };
 
 

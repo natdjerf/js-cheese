@@ -15,10 +15,14 @@ const createBoardSuccess = (data) => {
   console.log(currentBoard);
   $("#create-board-modal").modal('hide');
   $(".cheese").removeClass('hidden');
+  // $(".launch-create").addClass('hidden');
+
 };
 
 const createBoardFailure = (error) => {
   console.error(error);
+  $("#create-board-modal").modal('hide');
+  $("#create-board-fail-modal").modal('show');
 };
 
 const addToBoardSuccess = (data) => {
@@ -61,12 +65,29 @@ const deleteBoardSuccess = () => {
   currentCheeses = [];
   $("#single-saved-board-modal").find( "p" ).text('');
   $("#single-saved-board-modal").find( "h4" ).text('');
+  $("#delete-board-modal").modal('hide');
+  $(".launch-create").removeClass('hidden');
   console.log('board deleted');
 };
 
 const deleteBoardFailure = (error) => {
   console.error(error);
 };
+
+const editBoardSuccess = (data) => {
+  console.log(data);
+  currentBoard.name = data.board.name;
+  $("#edit-board-modal").modal('hide');
+  $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
+  $("#single-saved-board-modal").modal('show');
+
+};
+
+const editBoardFailure = (error) => {
+  console.error(error);
+};
+
+
 
 
 module.exports= {
@@ -81,5 +102,7 @@ module.exports= {
   singleSavedBoardSuccess,
   singleSavedBoardFailure,
   deleteBoardSuccess,
-  deleteBoardFailure
+  deleteBoardFailure,
+  editBoardSuccess,
+  editBoardFailure
 };

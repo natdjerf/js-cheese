@@ -58,19 +58,13 @@
         <div class="anatomy-desc sectiony">
           <p>Danish fontina cheesy grin cheesy grin. Smelly cheese macaroni cheese fondue ricotta macaroni cheese bavarian bergkase cow monterey jack. Bavarian bergkase cream cheese cottage cheese croque monsieur jarlsberg macaroni cheese fondue airedale. Ricotta cheddar.</p>
         </div>
-        <a href="#" class="scroll-link" data-id="create">Scroll Create</a>
+        <a href="#" class="launch-create" data-toggle="modal" data-target="#create-board-modal">Create Board</a>
     </div>
   </div>
 </div>
 
 <!-- This section is weird but it's going to be removed into buttons elsewhere -->
 <div class="logged-in-view section">
-  <div class="container">
-    <div class="create-board-start section" id="create">
-      <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#create-board-modal">
-      Create Board
-      </button>
-    </div>
     <div class="access-saved-boards section">
       <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#saved-boards-modal">
       My Saved Boards
@@ -79,7 +73,6 @@
           <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#single-saved-board-modal">Get board details</a>
         </div>
     </div>
-  </div>
 </div>
 <!-- End of weird section -->
 
@@ -87,7 +80,7 @@
 <!-- All Cheeses -->
 <div class="cheese section">
   <!--Hard -->
-  <div class="hard-cheese section" data-id="hard">
+  <div class="hard-cheese section" id="hard">
     <div class="container">
     <form id="add-asiago">
       <div class="asaiago" data-id="1">
@@ -148,12 +141,12 @@
         <button type="submit" name="cheese[id]" class="btn btn-primary add-cheese-button">Add to Board</button>
       </div>
     </form>
-
+    <a href="#" class="scroll-link" data-id="semi-hard">next</a>
   </div>
   </div>
 <!-- Hard -->
 <!-- Semi Hard -->
-<div class="semi-hard-cheese section" data-id="semi-hard">
+<div class="semi-hard-cheese section" id="semi-hard">
   <div class="container">
 
     <form id="add-maytag">
@@ -220,7 +213,7 @@
   </div>
 <!-- Semi Hard -->
 <!-- Semi Soft -->
-  <div class="semi-soft-cheese section">
+  <div class="semi-soft-cheese section" id=semi-soft>
     <div class="container">
 
     <form id="add-fontina">
@@ -287,7 +280,7 @@
   </div>
 <!-- Semi Soft -->
 <!-- Soft -->
-  <div class="soft-cheese section">
+  <div class="soft-cheese section" id="soft">
     <div class="container">
 
     <form id="add-brie">
@@ -561,6 +554,22 @@
 </div>
 <!-- End Create Board Modal -->
 
+<!-- Create Board Fail-->
+<div class="modal fade" id="create-board-fail-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Hmm. something went wrong.</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#create-board-modal">let's try this again</button>
+          </div>
+      </div>
+    </div>
+  </div>
+<!-- End Create Board Fail-->
+
 <!-- Saved Boards Modal -->
 <div class="modal fade" id="saved-boards-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -593,6 +602,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Details</h4>
+        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#edit-board-modal">Edit</a>
       </div>
       <div class="modal-body">
           <p></p>
@@ -604,7 +614,7 @@
           <button type="submit" class="btn btn-primary" id="single-saved-board-button">Search</button>
         </form>
         <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#delete-board-modal">Delete this board</a>
-        <a href="#" data-dismiss="modal" data-toggle="modal" >cancel</a>
+        <a href="#" data-dismiss="modal" data-toggle="modal" >Close</a>
       </div>
       </div>
     </div>
@@ -631,7 +641,25 @@
 </div>
 <!-- End Delete Board Modal -->
 
-
-
+<!-- Edit Board Modal -->
+<div class="modal fade" id="edit-board-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Name</h4>
+      </div>
+      <div class="modal-body">
+        <form id="edit-board">
+          <div class="form-group">
+            <input type="text" name="board[name]" class="form-control" id="exampleInputName1" placeholder="Enter new name">
+          </div>
+          <button type="submit" class="btn btn-primary" id="edit-board-button">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Edit Board Modal -->
 
 </html>

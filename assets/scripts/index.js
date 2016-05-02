@@ -16,7 +16,7 @@ $(() => {
   $(".change-pass-button").addClass('hidden');
   $(".sign-out-button").addClass('hidden');
   $(".sign-up-button").addClass('hidden');
-  $(".create-board-start").addClass('hidden');
+  $(".launch-create").addClass('hidden');
   $(".access-saved-boards").addClass('hidden');
   $(".cheese").addClass('hidden');
 

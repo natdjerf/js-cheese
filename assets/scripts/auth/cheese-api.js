@@ -62,6 +62,20 @@ const deleteBoard = (success, failure) => {
   .fail(failure);
 };
 
+const editBoard = (success, failure, data) => {
+  $.ajax({
+    method: 'PATCH',
+    url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
+    headers:{
+        Authorization: 'Token token=' + ui.currentUser.token,
+    },
+    data,
+  }).done(success, data)
+  .fail(failure);
+};
+
+
+
 
 
 
@@ -71,5 +85,6 @@ module.exports = {
   addToBoard,
   savedBoards,
   singleSavedBoard,
-  deleteBoard
+  deleteBoard,
+  editBoard
 };

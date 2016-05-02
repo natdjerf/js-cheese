@@ -11,6 +11,8 @@ let currentUser = {
 
 const signUpSuccess = (data) => {
   console.log(data);
+  $("#sign-up-modal").modal('hide');
+  $("#sign-in-modal").modal('show');
 };
 
 const signUpFailure = (error) => {
@@ -28,7 +30,8 @@ const signInSuccess = (data) => {
   $(".sign-out-button").removeClass('hidden');
   $(".sign-up-button").addClass('hidden');
   $(".sign-in-button").addClass('hidden');
-  $(".create-board-start").removeClass('hidden');
+  $(".launch-create").removeClass('hidden');
+  // $(".create-board-start").removeClass('hidden');
   $(".access-saved-boards").removeClass('hidden');
 };
 
@@ -42,6 +45,12 @@ const signOutSuccess = () => {
   currentUser.token = '';
   currentUser.id = undefined;
   console.log('signed out');
+  $(".cheese").addClass('hidden');
+  // $(".logged-in-view").addClass('hidden');
+  $(".change-pass-button").addClass('hidden');
+  $(".sign-out-button").addClass('hidden');
+  $(".sign-in-button").removeClass('hidden');
+
 };
 
 const changePasswordSuccess = () => {

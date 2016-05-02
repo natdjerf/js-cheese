@@ -8,6 +8,7 @@ let currentUser = {
 };
 
 
+
 const signUpSuccess = (data) => {
   console.log(data);
 };

@@ -59,7 +59,7 @@ const cheeseHandlers = () => {
    let data = getFormFields(this);
    data.cheese_addition = {};
    data.cheese_addition.cheese_id = $(event.target).closest('div').data('id');
-   data.cheese_addition.board_id = app.board.id;
+   data.cheese_addition.board_id = cheeseUi.currentBoard.board_id;
    console.log(data);
    // the details of the board/cheese to the cheese addition table
    cheeseApi.addToBoard(cheeseUi.addToBoardSuccess,cheeseUi.addToBoardFailure, data);

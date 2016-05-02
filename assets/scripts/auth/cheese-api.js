@@ -2,6 +2,7 @@
 
 const app = require('../app-data.js');
 const ui = require('./user-ui.js');
+const cheeseUi = require('./cheese-ui');
 
 const createBoard = (success, failure, data) => {
   console.log(data);
@@ -12,7 +13,7 @@ const createBoard = (success, failure, data) => {
         Authorization: 'Token token=' + ui.currentUser.token,
     },
     data,
-  }).done(success)
+  }).done(success, data)
   .fail(failure);
 };
 
@@ -42,7 +43,7 @@ const savedBoards = (success, failure) => {
 const singleSavedBoard = (success, failure) => {
   $.ajax({
     method: 'GET',
-    url: app.api + '/boards/13 ',
+    url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
     headers:{
         Authorization: 'Token token=' + ui.currentUser.token,
     },

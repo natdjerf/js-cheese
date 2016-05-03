@@ -1,8 +1,7 @@
-<div class="cheese section">
-
+<div class="cheese section row">
+  <div class="container">
     {{#each cheeses}}
-      <div class="{{this.family}}-cheese section">
-        <div class="container">
+      <div class="{{this.family}}-cheese section col-lg-15">
         <form id="add-{{this.name}}">
           <div class="{{this.name}}" data-id="{{this.id}}">
               <h2>{{this.name}}</h2>
@@ -13,7 +12,6 @@
           </div>
         </form>
       </div>
-    </div>
-  {{/each}}
-
+    {{/each}}
+  </div>
 </div>

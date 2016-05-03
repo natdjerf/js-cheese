@@ -4,13 +4,23 @@ $beige: #fff4e6;
 $tan: #be9b7b;
 $light-gray: #ddd;
 $black: #000;
+$burnt-red: #C34017;
 
 body {
-  color: $black;
+  color: $burnt-red;
 }
 
+.family-descriptions {
+  color: $beige;
+
+  .h1 {
+    color: $burnt-red;
+    }
+}
+
+
 h1 {
-  color: $dark-brown;
+  color: $burnt-red;
 }
 
 .anatomy-cheese-board {

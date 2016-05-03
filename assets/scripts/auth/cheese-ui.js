@@ -92,6 +92,8 @@ let displayCheeses = function(cheeses){
     $(".semi-hard-cheese").addClass('hidden');
     $(".soft-cheese").addClass('hidden');
     $(".semi-soft-cheese").addClass('hidden');
+		scrollToID("#cheeses", 750);
+
 
     $('.hard-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
@@ -103,12 +105,14 @@ let displayCheeses = function(cheeses){
      event.preventDefault();
      $(".semi-hard-cheese").addClass('hidden');
      $(".semi-soft-cheese").removeClass('hidden');
+		 scrollToID("#cheeses", 750);
     });
 
     $('.semi-soft-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
      $(".semi-soft-cheese").addClass('hidden');
       $(".soft-cheese").removeClass('hidden');
+			scrollToID("#cheeses", 750);
     });
 
     $('.soft-cheese .add-cheese-button').on('click', function (event) {
@@ -167,6 +171,7 @@ const createBoardSuccess = (data) => {
   getCheeses();
   $("#create-board-modal").modal('hide');
   $(".cheese").removeClass('hidden');
+	$(".hard-cheese").removeClass('hidden');
   scrollToID("#cheeses", 750);
 
   // $(".launch-create").addClass('hidden');

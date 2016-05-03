@@ -17,5 +17,8 @@ $(() => {
   $(".launch-create").addClass('hidden');
   $(".access-saved-boards").addClass('hidden');
   $(".cheese").addClass('hidden');
-
+  $(".hard-cheese").addClass('hidden');
+  $(".semi-hard-cheese").addClass('hidden');
+  $(".semi-soft-cheese").addClass('hidden');
+  $(".soft-cheese").addClass('hidden');
 });

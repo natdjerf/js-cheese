@@ -29,14 +29,16 @@ const cheeseHandlers = () => {
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
   // get saved boards
-  $('#saved-boards').on('submit', function (event) {
-    event.preventDefault();
-    console.log('Get Saved Boards clicked.');
-    cheeseApi.savedBoards(cheeseUi.savedBoardsSuccess, cheeseUi.savedBoardsFailure);
+	//Temp moved:
+  // $('#saved-boards').on('submit', function (event) {
+  //   event.preventDefault();
+  //   console.log('Get Saved Boards clicked.');
+  //   cheeseApi.savedBoards(cheeseUi.savedBoardsSuccess, cheeseUi.savedBoardsFailure);
+
     // $(".edit-link").addClass('hidden');
     // data.board.board_id = app.board.id;
     // data.board.user_id = app.user.id;
-  });
+  // });
   // get current board
   $('#single-saved-board').on('submit', function (event) {
     event.preventDefault();

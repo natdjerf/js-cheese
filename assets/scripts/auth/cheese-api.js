@@ -19,16 +19,16 @@ const createBoard = (success, failure, data) => {
 
 
 
-const savedBoards = (success, failure) => {
-  $.ajax({
-    method: 'GET',
-    url: app.api + '/boards',
-    headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
-    },
-  }).done(success)
-  .fail(failure);
-};
+// const savedBoards = (success, failure) => {
+//   $.ajax({
+//     method: 'GET',
+//     url: app.api + '/boards',
+//     headers:{
+//         Authorization: 'Token token=' + ui.currentUser.token,
+//     },
+//   }).done(success)
+//   .fail(failure);
+// };
 
 const singleSavedBoard = (success, failure) => {
   $.ajax({
@@ -73,7 +73,7 @@ const editBoard = (success, failure, data) => {
 module.exports = {
   createBoard,
   // addToBoard,
-  savedBoards,
+  // savedBoards,
   singleSavedBoard,
   deleteBoard,
   editBoard

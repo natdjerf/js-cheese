@@ -11,8 +11,9 @@ body{
 .header {
   position: fixed;
   width: 100%;
-	z-index: 10;
+  z-index: 10;
 }
+
 
 
 .header .navbar {
@@ -20,9 +21,14 @@ body{
   margin: 0;
 }
 
+
 .landing {
   position: relative;
 }
+
+
+
+
 
 h1 {
   margin: 60px 0;

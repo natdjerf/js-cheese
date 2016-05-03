@@ -3,7 +3,7 @@
 const cheeseApi = require('./cheese-api');
 const cheeseUi = require('./cheese-ui');
 const getFormFields = require('../../../lib/get-form-fields');
-const ui = require('./user-ui');
+const authUi = require('./user-ui');
 
 
 // scroll function
@@ -24,21 +24,10 @@ const cheeseHandlers = () => {
     event.preventDefault();
     let data = getFormFields(this);
     console.log(data);
-    data.board.user_id = ui.currentUser.id;
+    data.board.user_id = authUi.currentUser.id;
     console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
-  // get saved boards
-	//Temp moved:
-  // $('#saved-boards').on('submit', function (event) {
-  //   event.preventDefault();
-  //   console.log('Get Saved Boards clicked.');
-  //   cheeseApi.savedBoards(cheeseUi.savedBoardsSuccess, cheeseUi.savedBoardsFailure);
-
-    // $(".edit-link").addClass('hidden');
-    // data.board.board_id = app.board.id;
-    // data.board.user_id = app.user.id;
-  // });
   // get current board
   $('#single-saved-board').on('submit', function (event) {
     event.preventDefault();
@@ -72,7 +61,7 @@ const cheeseHandlers = () => {
   $('#edit-board').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
-    data.board.user_id = ui.currentUser.id;
+    data.board.user_id = authUi.currentUser.id;
     console.log(data);
     console.log('Edit Board clicked');
     cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);
@@ -84,7 +73,6 @@ const cheeseHandlers = () => {
 // getCheess is in cheeseUI
 
 module.exports = {
-    // displayCheeses,
     cheeseHandlers,
     scrollToID
   };

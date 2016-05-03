@@ -1,8 +1,9 @@
 'use strict';
 
 const app = require('../app-data.js');
-const ui = require('./user-ui.js');
+const authUi = require('./user-ui.js');
 const cheeseUi = require('./cheese-ui');
+
 
 const createBoard = (success, failure, data) => {
   console.log(data);
@@ -10,7 +11,7 @@ const createBoard = (success, failure, data) => {
     method: 'POST',
     url: app.api + '/boards',
     headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
+        Authorization: 'Token token=' + authUi.currentUser.token,
     },
     data,
   }).done(success, data)
@@ -18,46 +19,36 @@ const createBoard = (success, failure, data) => {
 };
 
 
-
-// const savedBoards = (success, failure) => {
-//   $.ajax({
-//     method: 'GET',
-//     url: app.api + '/boards',
-//     headers:{
-//         Authorization: 'Token token=' + ui.currentUser.token,
-//     },
-//   }).done(success)
-//   .fail(failure);
-// };
-
 const singleSavedBoard = (success, failure) => {
   $.ajax({
     method: 'GET',
     url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
     headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
+        Authorization: 'Token token=' + authUi.currentUser.token,
     },
   }).done(success)
   .fail(failure);
 };
+
 
 const deleteBoard = (success, failure) => {
   $.ajax({
     method: 'DELETE',
     url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
     headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
+        Authorization: 'Token token=' + authUi.currentUser.token,
     },
   }).done(success)
   .fail(failure);
 };
+
 
 const editBoard = (success, failure, data) => {
   $.ajax({
     method: 'PATCH',
     url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
     headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
+        Authorization: 'Token token=' + authUi.currentUser.token,
     },
     data,
   }).done(success, data)
@@ -72,8 +63,6 @@ const editBoard = (success, failure, data) => {
 
 module.exports = {
   createBoard,
-  // addToBoard,
-  // savedBoards,
   singleSavedBoard,
   deleteBoard,
   editBoard

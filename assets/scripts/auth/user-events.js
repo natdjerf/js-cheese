@@ -4,6 +4,7 @@ const authApi = require('./user-api');
 const authUi = require('./user-ui');
 const getFormFields = require('../../../lib/get-form-fields');
 
+
 const addHandlers = () => {
   $('#sign-up').on('submit', function (event) {
     event.preventDefault();

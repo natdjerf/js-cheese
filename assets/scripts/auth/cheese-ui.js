@@ -84,69 +84,15 @@ let getCheeses = function(){
 };
 
 
-
-// Handlebars - Saved Boards
-const savedBoards = (success, failure) => {
-  $.ajax({
-    method: 'GET',
-    url: app.api + '/boards',
-    headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
-    },
-  }).done(success)
-  .fail(failure);
-};
-
-const savedBoardsSuccess = (data) => {
-  console.log(data);
-  console.log(data.boards);
-  $('.saved-boards-body').removeClass('hidden');
-  // for (let i = 0; i < data.boards.length; i++) {
-  //     myBoards.push(data.boards[i].name);
-  //     }
-  // console.log(myBoards);
-  // $(".edit-link").removeClass('hidden');
-
-};
-
-const savedBoardsFailure = (error) => {
-  console.error(error);
-};
-
-
-let displayBoards = function(boards){
-  let allBoardsTemplate = require('./../templates/all-boards.handlebars');
-    $('.saved-boards-body').append(allBoardsTemplate({
-      boards : boards.boards
-    }));
-    $('.saved-boards-body').addClass('hidden');
-    $('#saved-boards').on('submit', function (event) {
-      event.preventDefault();
-      console.log('Get Saved Boards clicked.');
-      savedBoards(savedBoardsSuccess, savedBoardsFailure);
-    });
-};
-
-
-let getBoards = function(){
-  $.ajax({
-    url: "http://localhost:3000/boards",
-    headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
-    },
-  }).done(function(boards){
-    displayBoards(boards);
-    console.log(boards);
-  });
-};
-
-
+// User & Board Temporary storage:
 let currentBoard = {
   board_id: undefined,
   name: '',
-};
+  };
 let currentCheeses = [];
 let myBoards = [];
+
+
 
 const createBoardSuccess = (data) => {
   currentBoard.board_id = data.board.id;
@@ -154,12 +100,11 @@ const createBoardSuccess = (data) => {
   currentBoard.name = data.board.name;
   console.log(currentBoard);
   getCheeses();
-  getBoards();
   $("#create-board-modal").modal('hide');
   $(".cheese").removeClass('hidden');
   // $(".launch-create").addClass('hidden');
-
 };
+
 
 const createBoardFailure = (error) => {
   console.error(error);
@@ -181,9 +126,11 @@ const singleSavedBoardSuccess = (data) => {
   }
 };
 
+
 const singleSavedBoardFailure = (error) => {
   console.error(error);
 };
+
 
 const deleteBoardSuccess = () => {
   currentBoard.board_id = undefined;
@@ -196,9 +143,11 @@ const deleteBoardSuccess = () => {
   console.log('board deleted');
 };
 
+
 const deleteBoardFailure = (error) => {
   console.error(error);
 };
+
 
 const editBoardSuccess = (data) => {
   console.log(data);
@@ -206,8 +155,8 @@ const editBoardSuccess = (data) => {
   $("#edit-board-modal").modal('hide');
   $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
   $("#single-saved-board-modal").modal('show');
-
 };
+
 
 const editBoardFailure = (error) => {
   console.error(error);
@@ -219,7 +168,6 @@ const editBoardFailure = (error) => {
 module.exports= {
   getCheeses,
   addToBoard,
-  getBoards,
   currentBoard,
   currentCheeses,
   myBoards,
@@ -227,8 +175,6 @@ module.exports= {
   createBoardFailure,
   addToBoardSuccess,
   addToBoardFailure,
-  savedBoardsSuccess,
-  savedBoardsFailure,
   singleSavedBoardSuccess,
   singleSavedBoardFailure,
   deleteBoardSuccess,

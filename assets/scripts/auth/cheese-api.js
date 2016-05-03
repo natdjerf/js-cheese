@@ -19,18 +19,6 @@ const createBoard = (success, failure, data) => {
 };
 
 
-const singleSavedBoard = (success, failure) => {
-  $.ajax({
-    method: 'GET',
-    url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
-    headers:{
-        Authorization: 'Token token=' + authUi.currentUser.token,
-    },
-  }).done(success)
-  .fail(failure);
-};
-
-
 const deleteBoard = (success, failure) => {
   $.ajax({
     method: 'DELETE',
@@ -63,7 +51,6 @@ const editBoard = (success, failure, data) => {
 
 module.exports = {
   createBoard,
-  singleSavedBoard,
   deleteBoard,
   editBoard
 };

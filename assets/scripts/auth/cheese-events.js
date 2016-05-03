@@ -28,12 +28,6 @@ const cheeseHandlers = () => {
     console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
-  // get current board
-  $('#single-saved-board').on('submit', function (event) {
-    event.preventDefault();
-    console.log('Get Details clicked.');
-    cheeseApi.singleSavedBoard(cheeseUi.singleSavedBoardSuccess, cheeseUi.savedBoardFailure);
-  });
 
   // navigation click actions
 	$('.scroll-link').on('click', function(event){

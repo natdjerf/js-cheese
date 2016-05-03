@@ -3,30 +3,77 @@
 // const cheeseApi = require('./cheese-api');
 const getFormFields = require('../../../lib/get-form-fields');
 const app = require('../app-data.js');
-const ui = require('./user-ui');
+const authUi = require('./user-ui');
 
 
-// Handlerbars - Cheese Events
+// Handlebars JSON Render Events: Cheese Actions
 const addToBoard = (success, failure, data) => {
   $.ajax({
     method: 'POST',
     url: app.api + '/cheese_additions',
     headers:{
-        Authorization: 'Token token=' + ui.currentUser.token,
+        Authorization: 'Token token=' + authUi.currentUser.token,
     },
     data,
   }).done(success)
   .fail(failure);
 };
 
+
 const addToBoardSuccess = (data) => {
   console.log(data);
-  // the addition to the cheese addition table
 };
 
 const addToBoardFailure = (error) => {
   console.error(error);
 };
+
+const singleSavedBoardSuccess = (data) => {
+  console.log(data);
+  console.log(data.cheeses);
+  $('.single-saved-board-body').removeClass('hidden');
+  // for (let i = 0; i < data.cheeses.length; i++) {
+  //     currentCheeses.push(data.cheeses[i].name);
+  //     }
+  // console.log(currentCheeses);
+  // for (var i = 0; i < currentCheeses.length; i++) {
+  //   $("#single-saved-board-modal").find( "p" ).text('Cheeses:  ' + currentCheeses);
+  //   $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
+  // }
+};
+
+
+const singleSavedBoardFailure = (error) => {
+  console.error(error);
+};
+
+let displayCurrentBoard = function(cheeses){
+  let currentBoardTemplate = require('./../templates/current-board.handlebars');
+    $('.single-saved-board-body').append(currentBoardTemplate({
+      cheeses : cheeses.cheeses
+    }));
+    $('.single-saved-board-body').addClass('hidden');
+    $('#single-saved-board').on('submit', function (event) {
+      event.preventDefault();
+      console.log('Get Details clicked.');
+      singleSavedBoard(singleSavedBoardSuccess, singleSavedBoardFailure);
+    });
+};
+
+
+
+let getCurrentBoard = function(){
+  $.ajax({
+    url: 'http://localhost:3000/boards/' + currentBoard.board_id,
+    headers:{
+        Authorization: 'Token token=' + authUi.currentUser.token,
+    },
+  }).done(function(cheeses){
+    displayCurrentBoard(cheeses);
+    console.log(cheeses);
+  });
+};
+
 
 let displayCheeses = function(cheeses){
   let allCheeseTemplate = require('./../templates/all-cheese.handlebars');
@@ -58,7 +105,10 @@ let displayCheeses = function(cheeses){
     $('.soft-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
      $(".soft-cheese").addClass('hidden');
+     getCurrentBoard();
+     $("#single-saved-board-modal").modal('show');
     });
+
     // add to cheese_addition table
     $('.add-cheese-button').on('click', function (event) {
      event.preventDefault();
@@ -68,7 +118,6 @@ let displayCheeses = function(cheeses){
      data.cheese_addition.cheese_id = $(event.target).closest('div').data('id');
      data.cheese_addition.board_id = currentBoard.board_id;
      console.log(data);
-     // data = the details of the board/cheese ids to the cheese addition table
      addToBoard(addToBoardSuccess,addToBoardFailure, data);
     });
 
@@ -82,6 +131,23 @@ let getCheeses = function(){
     console.log(cheeses);
   });
 };
+
+// Handlebars JSON Render Events: Board Action
+
+const singleSavedBoard = (success, failure) => {
+  $.ajax({
+    method: 'GET',
+    url: app.api + '/boards/' + currentBoard.board_id,
+    headers:{
+        Authorization: 'Token token=' + authUi.currentUser.token,
+    },
+  }).done(success)
+  .fail(failure);
+};
+
+
+
+
 
 
 // User & Board Temporary storage:
@@ -110,25 +176,6 @@ const createBoardFailure = (error) => {
   console.error(error);
   $("#create-board-modal").modal('hide');
   $("#create-board-fail-modal").modal('show');
-};
-
-
-const singleSavedBoardSuccess = (data) => {
-  console.log(data);
-  console.log(data.cheeses);
-  for (let i = 0; i < data.cheeses.length; i++) {
-      currentCheeses.push(data.cheeses[i].name);
-      }
-  console.log(currentCheeses);
-  for (var i = 0; i < currentCheeses.length; i++) {
-    $("#single-saved-board-modal").find( "p" ).text('Cheeses:  ' + currentCheeses);
-    $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
-  }
-};
-
-
-const singleSavedBoardFailure = (error) => {
-  console.error(error);
 };
 
 
@@ -168,6 +215,8 @@ const editBoardFailure = (error) => {
 module.exports= {
   getCheeses,
   addToBoard,
+  getCurrentBoard,
+  singleSavedBoard,
   currentBoard,
   currentCheeses,
   myBoards,

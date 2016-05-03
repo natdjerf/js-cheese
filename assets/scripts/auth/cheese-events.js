@@ -6,18 +6,6 @@ const getFormFields = require('../../../lib/get-form-fields');
 const authUi = require('./user-ui');
 
 
-// scroll function
-function scrollToID(id, speed){
-	let offSet = 50;
-	let targetOffset = $(id).offset().top - offSet;
-	let mainNav = $('#main-nav');
-	$('html,body').animate({scrollTop:targetOffset}, speed);
-	if (mainNav.hasClass("open")) {
-		mainNav.css("height", "1px").removeClass("in").addClass("collapse");
-		mainNav.removeClass("open");
-	}
-}
-
 const cheeseHandlers = () => {
   // create board
   $('#create-board').on('submit', function (event) {
@@ -28,12 +16,11 @@ const cheeseHandlers = () => {
     console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
-
   // navigation click actions
 	$('.scroll-link').on('click', function(event){
 		event.preventDefault();
 		var sectionID = $(this).attr("data-id");
-		scrollToID('#' + sectionID, 750);
+		cheeseUi.scrollToID('#' + sectionID, 750);
 	});
 	// scroll to top action
 	$('.scroll-top').on('click', function(event) {
@@ -64,9 +51,6 @@ const cheeseHandlers = () => {
 };
 
 
-// getCheess is in cheeseUI
-
 module.exports = {
     cheeseHandlers,
-    scrollToID
   };

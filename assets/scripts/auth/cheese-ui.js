@@ -5,6 +5,26 @@ const getFormFields = require('../../../lib/get-form-fields');
 const app = require('../app-data.js');
 const authUi = require('./user-ui');
 
+// scroll function
+function scrollToID(id, speed){
+	let offSet = 50;
+	let targetOffset = $(id).offset().top - offSet;
+	let mainNav = $('#main-nav');
+	$('html,body').animate({scrollTop:targetOffset}, speed);
+	if (mainNav.hasClass("open")) {
+		mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+		mainNav.removeClass("open");
+	}
+}
+
+
+// Board Temporary storage:
+let currentBoard = {
+  board_id: undefined,
+  name: '',
+  };
+
+
 
 // Handlebars JSON Render Events: Cheese Actions
 const addToBoard = (success, failure, data) => {
@@ -23,7 +43,6 @@ const addToBoard = (success, failure, data) => {
 const addToBoardSuccess = (data) => {
   console.log(data);
 };
-
 const addToBoardFailure = (error) => {
   console.error(error);
 };
@@ -32,21 +51,12 @@ const singleSavedBoardSuccess = (data) => {
   console.log(data);
   console.log(data.cheeses);
   $('.single-saved-board-body').removeClass('hidden');
-  // for (let i = 0; i < data.cheeses.length; i++) {
-  //     currentCheeses.push(data.cheeses[i].name);
-  //     }
-  // console.log(currentCheeses);
-  // for (var i = 0; i < currentCheeses.length; i++) {
-  //   $("#single-saved-board-modal").find( "p" ).text('Cheeses:  ' + currentCheeses);
-  //   $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
-  // }
 };
-
-
 const singleSavedBoardFailure = (error) => {
   console.error(error);
 };
 
+// Handlebars render:
 let displayCurrentBoard = function(cheeses){
   let currentBoardTemplate = require('./../templates/current-board.handlebars');
     $('.single-saved-board-body').append(currentBoardTemplate({
@@ -61,7 +71,6 @@ let displayCurrentBoard = function(cheeses){
 };
 
 
-
 let getCurrentBoard = function(){
   $.ajax({
     url: 'http://localhost:3000/boards/' + currentBoard.board_id,
@@ -74,10 +83,10 @@ let getCurrentBoard = function(){
   });
 };
 
-
+// Handlebars render:
 let displayCheeses = function(cheeses){
   let allCheeseTemplate = require('./../templates/all-cheese.handlebars');
-    $('.all-cheese').append(allCheeseTemplate({
+    $('.all-cheese').html(allCheeseTemplate({
       cheeses : cheeses.cheeses
     }));
     $(".semi-hard-cheese").addClass('hidden');
@@ -132,8 +141,8 @@ let getCheeses = function(){
   });
 };
 
-// Handlebars JSON Render Events: Board Action
 
+// Handlebars JSON Render Events: Board Action
 const singleSavedBoard = (success, failure) => {
   $.ajax({
     method: 'GET',
@@ -150,16 +159,6 @@ const singleSavedBoard = (success, failure) => {
 
 
 
-// User & Board Temporary storage:
-let currentBoard = {
-  board_id: undefined,
-  name: '',
-  };
-let currentCheeses = [];
-let myBoards = [];
-
-
-
 const createBoardSuccess = (data) => {
   currentBoard.board_id = data.board.id;
   console.log(currentBoard);
@@ -168,10 +167,10 @@ const createBoardSuccess = (data) => {
   getCheeses();
   $("#create-board-modal").modal('hide');
   $(".cheese").removeClass('hidden');
+  scrollToID("#cheeses", 750);
+
   // $(".launch-create").addClass('hidden');
 };
-
-
 const createBoardFailure = (error) => {
   console.error(error);
   $("#create-board-modal").modal('hide');
@@ -182,15 +181,12 @@ const createBoardFailure = (error) => {
 const deleteBoardSuccess = () => {
   currentBoard.board_id = undefined;
   currentBoard.name = '';
-  currentCheeses = [];
   $("#single-saved-board-modal").find( "p" ).text('');
   $("#single-saved-board-modal").find( "h4" ).text('');
   $("#delete-board-modal").modal('hide');
   $(".launch-create").removeClass('hidden');
   console.log('board deleted');
 };
-
-
 const deleteBoardFailure = (error) => {
   console.error(error);
 };
@@ -203,8 +199,6 @@ const editBoardSuccess = (data) => {
   $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
   $("#single-saved-board-modal").modal('show');
 };
-
-
 const editBoardFailure = (error) => {
   console.error(error);
 };
@@ -213,13 +207,12 @@ const editBoardFailure = (error) => {
 
 
 module.exports= {
+  scrollToID,
   getCheeses,
   addToBoard,
   getCurrentBoard,
   singleSavedBoard,
   currentBoard,
-  currentCheeses,
-  myBoards,
   createBoardSuccess,
   createBoardFailure,
   addToBoardSuccess,

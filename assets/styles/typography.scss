@@ -1,11 +1,18 @@
-// .container-fluid {
-//   background-color: none;
-//   border-color: none;
-// }
 
-body{
+body {
+  background-image: url(https://doctorfin.co.uk/wp-content/uploads/2014/04/Dark-Slate.jpg);
+  background-position: center;
+  background-repeat: repeat;
+
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+
   font-family: Courier;
+  padding: 0;
   position: relative;
+  width: 100%;
 }
 
 .header {
@@ -13,8 +20,6 @@ body{
   width: 100%;
   z-index: 10;
 }
-
-
 
 .header .navbar {
   border: 0;
@@ -26,17 +31,13 @@ body{
   position: relative;
 }
 
-
-
-
-
 h1 {
   margin: 60px 0;
 }
 
 
 .about {
-  // background: url(http://s.iamafoodblog.com/wp-content/uploads/2015/04/how-to-make-the-ultimate-cheese-plate-5w.jpg) no-repeat center center;
+  background: url(http://s.iamafoodblog.com/wp-content/uploads/2015/04/how-to-make-the-ultimate-cheese-plate-5w.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -48,37 +49,7 @@ h1 {
 }
 
 .anatomy-cheese-board {
-  height: 600px;
+  min-height: 600px;
   position: relative;
   width: 100%;
 }
-
-
-.create-board {
-  height: 600px;
-  position: relative;
-  width: 100%;
-}
-
-.access-saved-boards {
-  height: 600px;
-  position: relative;
-  width: 100%;
-}
-
-.cheese-section > div {
-  height: 600px;
-  position: relative;
-  width: 100%;
-}
-
-
-
-
-
-//
-// .anatomy-desc {
-//   width: 400px;
-//   height: 100px;
-//
-// }

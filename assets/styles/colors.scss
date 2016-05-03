@@ -2,36 +2,21 @@ $dark-brown:#4b3832;
 $lighter-brown: #854442;
 $beige: #fff4e6;
 $tan: #be9b7b;
+$light-gray: #ddd;
+$black: #000;
 
-.about {
-  background-color: $tan;
+body {
+  color: $black;
 }
 
-.create-board-start {
-  background-color: $lighter-brown;
+h1 {
+  color: $dark-brown;
 }
 
 .anatomy-cheese-board {
-  background-color: $lighter-brown;
+  color: $beige;
 }
 
-
-.create-board {
-  background-color: $lighter-brown;
-}
-
-.hard-cheese {
-  background-color: $beige;
-}
-
-.semi-hard-cheese {
-  background-color: $tan;
-}
-
-.semi-soft-cheese {
-  background-color: $lighter-brown;
-}
-
-.soft-cheese {
-  background-color: $beige;
+.all-cheese {
+  color: $beige;
 }

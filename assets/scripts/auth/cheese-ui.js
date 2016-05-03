@@ -31,18 +31,28 @@ let displayCheeses = function(cheeses){
     $('.all-cheese').append(allCheeseTemplate({
       cheeses : cheeses.cheeses
     }));
+    $(".semi-hard-cheese").addClass('hidden');
+    $(".soft-cheese").addClass('hidden');
+    $(".semi-soft-cheese").addClass('hidden');
+
     $('.hard-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
     $(".hard-cheese").addClass('hidden');
+    $(".semi-hard-cheese").removeClass('hidden');
     });
+
     $('.semi-hard-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
      $(".semi-hard-cheese").addClass('hidden');
+     $(".semi-soft-cheese").removeClass('hidden');
     });
+
     $('.semi-soft-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
      $(".semi-soft-cheese").addClass('hidden');
+      $(".soft-cheese").removeClass('hidden');
     });
+
     $('.soft-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
      $(".soft-cheese").addClass('hidden');

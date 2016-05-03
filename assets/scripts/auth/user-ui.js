@@ -31,7 +31,7 @@ const savedBoardsFailure = (error) => {
 
 let displayBoards = function(boards){
   let allBoardsTemplate = require('./../templates/all-boards.handlebars');
-    $('.saved-boards-body').append(allBoardsTemplate({
+    $('.saved-boards-body').html(allBoardsTemplate({
       boards : boards.boards
     }));
     $('.saved-boards-body').addClass('hidden');

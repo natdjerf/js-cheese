@@ -59,7 +59,7 @@ const singleSavedBoardFailure = (error) => {
 // Handlebars render:
 let displayCurrentBoard = function(cheeses){
   let currentBoardTemplate = require('./../templates/current-board.handlebars');
-    $('.single-saved-board-body').append(currentBoardTemplate({
+    $('.single-saved-board-body').html(currentBoardTemplate({
       cheeses : cheeses.cheeses
     }));
     $('.single-saved-board-body').addClass('hidden');
@@ -92,7 +92,6 @@ let displayCheeses = function(cheeses){
     $(".semi-hard-cheese").addClass('hidden');
     $(".soft-cheese").addClass('hidden');
     $(".semi-soft-cheese").addClass('hidden');
-		scrollToID("#cheeses", 750);
 
 
     $('.hard-cheese .add-cheese-button').on('click', function (event) {
@@ -105,21 +104,21 @@ let displayCheeses = function(cheeses){
      event.preventDefault();
      $(".semi-hard-cheese").addClass('hidden');
      $(".semi-soft-cheese").removeClass('hidden');
-		 scrollToID("#cheeses", 750);
     });
 
     $('.semi-soft-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
      $(".semi-soft-cheese").addClass('hidden');
-      $(".soft-cheese").removeClass('hidden');
-			scrollToID("#cheeses", 750);
+    	$(".soft-cheese").removeClass('hidden');
     });
 
     $('.soft-cheese .add-cheese-button').on('click', function (event) {
      event.preventDefault();
      $(".soft-cheese").addClass('hidden');
+		 $('.single-saved-board-body').html('');
      getCurrentBoard();
      $("#single-saved-board-modal").modal('show');
+		 $("#single-saved-board-modal").find( "h4" ).text(currentBoard.name);
     });
 
     // add to cheese_addition table

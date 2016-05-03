@@ -35,6 +35,18 @@ h1 {
   margin: 60px 0;
 }
 
+.scroll-link, .launch-create {
+  font-size: 3em;
+  margin-top: 0px;
+  margin-right: 50%;
+  margin-bottom: 0px;
+  margin-left: 50%;
+  position: relative;
+  top: 300px;
+}
+
+
+
 
 .about {
   background: url(http://s.iamafoodblog.com/wp-content/uploads/2015/04/how-to-make-the-ultimate-cheese-plate-5w.jpg) no-repeat center center;
@@ -52,6 +64,11 @@ h1 {
   min-height: 600px;
   position: relative;
   width: 100%;
+}
+
+
+.cheese.section.row {
+  padding-bottom: 100px;
 }
 
 

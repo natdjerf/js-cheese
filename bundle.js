@@ -160,7 +160,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  api: 'http://localhost:3000'
+	  api: 'https://gentle-everglades-70199.herokuapp.com'
 	};
 
 	module.exports = app;
@@ -215,7 +215,7 @@ webpackJsonp([0],[
 
 	var getBoards = function getBoards() {
 	  $.ajax({
-	    url: "http://localhost:3000/boards",
+	    url: app.api + '/boards',
 	    headers: {
 	      Authorization: 'Token token=' + currentUser.token
 	    }
@@ -1741,7 +1741,7 @@ webpackJsonp([0],[
 
 	var getCurrentBoard = function getCurrentBoard() {
 	  $.ajax({
-	    url: 'http://localhost:3000/boards/' + currentBoard.board_id,
+	    url: app.api + '/boards/' + currentBoard.board_id,
 	    headers: {
 	      Authorization: 'Token token=' + authUi.currentUser.token
 	    }
@@ -1803,7 +1803,7 @@ webpackJsonp([0],[
 
 	var getCheeses = function getCheeses() {
 	  $.ajax({
-	    url: "http://localhost:3000/cheeses"
+	    url: "https://gentle-everglades-70199.herokuapp.com/cheeses"
 	  }).done(function (cheeses) {
 	    displayCheeses(cheeses);
 	    console.log(cheeses);

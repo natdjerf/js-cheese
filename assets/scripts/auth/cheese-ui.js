@@ -73,7 +73,7 @@ let displayCurrentBoard = function(cheeses){
 
 let getCurrentBoard = function(){
   $.ajax({
-    url: 'http://localhost:3000/boards/' + currentBoard.board_id,
+    url: app.api + '/boards/' + currentBoard.board_id,
     headers:{
         Authorization: 'Token token=' + authUi.currentUser.token,
     },
@@ -137,7 +137,7 @@ let displayCheeses = function(cheeses){
 
 let getCheeses = function(){
   $.ajax({
-    url: "http://localhost:3000/cheeses",
+    url: "https://gentle-everglades-70199.herokuapp.com/cheeses",
   }).done(function(cheeses){
     displayCheeses(cheeses);
     console.log(cheeses);

@@ -45,7 +45,7 @@ let displayBoards = function(boards){
 
 let getBoards = function(){
   $.ajax({
-    url: "http://localhost:3000/boards",
+    url: app.api + '/boards',
     headers:{
         Authorization: 'Token token=' + currentUser.token,
     },

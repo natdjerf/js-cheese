@@ -4,22 +4,31 @@ body {
   background-position: center;
   background-repeat: repeat;
 
+
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
 
-  font-family: Courier;
+  font-family: 'Josefin Slab', serif;
+  font-size: 15px;
   padding: 0;
   position: relative;
   width: 100%;
 }
 
+.navbar {
+  background-color: rgba(255, 255, 255, .5);
+}
+
+
 .header {
   position: fixed;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
 }
+
+
 
 .header .navbar {
   border: 0;
@@ -32,17 +41,28 @@ body {
 }
 
 h1 {
-  margin: 60px 0;
+  font-family: 'Josefin Slab', serif;
+  letter-spacing: 3px;
+  font-size: 4em;
+  font-weight: bolder;
+  margin-top: 150px;
 }
 
-.scroll-link, .launch-create {
+.scroll-link,
+.launch-create {
   font-size: 3em;
-  margin-top: 0px;
-  margin-right: 50%;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   margin-left: 50%;
+  margin-right: 50%;
+  margin-top: 0;
   position: relative;
+  text-align: center;
   top: 300px;
+}
+
+.arrow-down-create h3 {
+  margin-right: -2%;
+  margin-top: 0;
 }
 
 
@@ -60,10 +80,20 @@ h1 {
   width: 100%;
 }
 
+
 .anatomy-cheese-board {
+  font-family: Courier;
   min-height: 600px;
   position: relative;
   width: 100%;
+  h2 {
+    margin-bottom: 70px;
+    margin-top: 70px;
+  }
+}
+
+.anatomy-desc {
+  position: relative;
 }
 
 
@@ -71,6 +101,20 @@ h1 {
   padding-bottom: 100px;
 }
 
+
+.family-descriptions > div {
+  font-family: Courier;
+
+}
+
+.family-descriptions > div {
+  font-family: Courier;
+}
+
+
+.modal-body {
+  font-size: 18px;
+}
 
 .col-lg-15 {
     position: relative;

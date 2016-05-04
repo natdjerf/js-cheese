@@ -14,8 +14,7 @@ $(() => {
   cheeseEvents.cheeseHandlers();
   console.log('Page loaded!');
   $(".dropdown").addClass('hidden');
-  $(".launch-create").addClass('hidden');
-  $(".access-saved-boards").addClass('hidden');
+  $(".arrow-down-create").addClass('hidden');
   $(".cheese").addClass('hidden');
   $(".hard-cheese").addClass('hidden');
   $(".semi-hard-cheese").addClass('hidden');

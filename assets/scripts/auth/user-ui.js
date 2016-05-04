@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app-data.js');
+// const cheeseUi = require('./cheese-ui');
 
 let currentUser = {
   id: undefined,
@@ -77,9 +78,9 @@ const signInSuccess = (data) => {
   $("#sign-in-modal").modal('hide');
   $(".dropdown").removeClass('hidden');
   $(".sign-in-button").addClass('hidden');
-  $(".launch-create").removeClass('hidden');
-  // $(".create-board-start").removeClass('hidden');
+  $(".arrow-down-create").removeClass('hidden');
   $(".access-saved-boards").removeClass('hidden');
+  // cheeseUi.scrollToID("#anatomy", 750);
 };
 
 const signInFailure = (error) => {
@@ -94,7 +95,7 @@ const signOutSuccess = () => {
   console.log('signed out');
   $(".cheese").addClass('hidden');
   $("#sign-out-modal").modal('hide');
-  // $(".logged-in-view").addClass('hidden');
+  $(".arrow-down-create").addClass('hidden');
   $(".dropdown").addClass('hidden');
   $(".sign-in-button").removeClass('hidden');
 

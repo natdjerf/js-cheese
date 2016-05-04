@@ -1,10 +1,21 @@
-$dark-brown:#4b3832;
+$dark-maroon:#AB1A1A;
 $lighter-brown: #854442;
 $beige: #fff4e6;
 $tan: #be9b7b;
-$light-gray: #ddd;
 $black: #000;
-$burnt-red: #C34017;
+$burnt-red: #c34017;
+$dark-red: #b92f2c;
+$dark-gray: #0f100d;
+$off-white: #f5f0ef;
+$yellow: #f4b424;
+
+
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background-color: $dark-gray;
+}
 
 body {
   color: $burnt-red;
@@ -14,7 +25,7 @@ body {
   color: $beige;
 
   .h1 {
-    color: $burnt-red;
+    color: $dark-maroon;
     }
 }
 
@@ -22,12 +33,12 @@ body {
   color: $black;
 }
 
-.create-link {
-  color: $tan;
+.launch-create {
+  color: $off-white;
 }
 
 h1 {
-  color: $burnt-red;
+  color: $yellow;
 }
 
 .anatomy-cheese-board {
@@ -35,5 +46,21 @@ h1 {
 }
 
 .all-cheese {
+  color: $beige;
+}
+
+.navbar-default .navbar-brand,
+.dropdown {
+  color: $black;
+}
+
+
+.btn-primary {
+  color: $black;
+  background-color: $dark-maroon;
+  border: 0;
+}
+
+.close {
   color: $beige;
 }

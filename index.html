@@ -5,6 +5,7 @@
 
     <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
   </head>
 <body class="body section">
 
@@ -12,7 +13,7 @@
 
 
     <div class ="header">
-      <div class="container">
+
 
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -23,16 +24,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand scroll-top">all cheese errythang</a>
+            <a href="#" class="navbar-brand scroll-top">#cheese</a>
           </div>
           <!--/.navbar-header-->
             <ul class="nav navbar-nav navbar-right">
               <button type="button" class="btn btn-primary btn-lg sign-in-button" data-toggle="modal" data-target="#sign-in-modal">
-              Log In
+              Sign In
               </button>
               <!--Drop down -->
               <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MY ACCOUNT <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#saved-boards-modal" data-toggle="modal">My Saved Boards</a></li>
                 <li role="separator" class="divider"></li>
@@ -44,25 +45,32 @@
             </ul>
         </div>
       </nav>
-    </div>
   </div>
   <!-- End of header-->
 <div class="about section">
   <div class="container">
-    <h1>more cheese please</h1>
-    <a href="#" class=" scroll-link" data-id="anatomy">
+    <h1>MORE CHEESE PLEASE</h1>
+
+    <a href="#" class="scroll-link" data-id="anatomy">
     <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
     </a>
+
   </div>
 </div>
 
   <div class="anatomy-cheese-board section" id="anatomy">
     <div class="container">
         <h2>anatomy of a cheese board</h2>
-        <div class="anatomy-desc sectiony">
-          <p>Danish fontina cheesy grin cheesy grin. Smelly cheese macaroni cheese fondue ricotta macaroni cheese bavarian bergkase cow monterey jack. Bavarian bergkase cream cheese cottage cheese croque monsieur jarlsberg macaroni cheese fondue airedale. Ricotta cheddar.</p>
+        <div class="anatomy-desc section">
+          <p>The art of the perfect cheese board is simple; choose between 3 and 5 cheeses for your platter: 1. A firm cheese - think along the lines of a cheddar, and you can’t go wrong. 2. A soft cheese - Camembert and Brie are always crowd pleasers. 3. A semi-soft that's pliable, mellow, and earthy. 4. A blue - no need for explanation there. Offer a range of textures in cheeses, from soft goat’s cheeses and creamy bries and camemberts to hard cheeses and just slightly crumbly blue cheeses. Something old, something new, something goat, something blue. Arrange cheeses in a clockwise fashion from mildest to most pungent and complex. Don't let the cheese stand alone. Select two or three accompaniments with contrasting flavors and textures. One easy way to choose: Follow the "what grows together, goes together" rule. Bon appétit.</p>
         </div>
-        <a href="#" class="launch-create" data-toggle="modal" data-target="#create-board-modal">Create Board</a>
+
+        <div class="arrow-down-create section">
+          <a href="#" class="launch-create" data-toggle="modal" data-target="#create-board-modal">
+          <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          <h3>create board</h3>
+          </a>
+        </div>
     </div>
   </div>
 </div>
@@ -72,22 +80,22 @@
     <div class="hard-cheese">
       <h1>Hard</h1>
       <h2> Select One</h2>
-      <p>Fromage fromage frais cow st. agur blue cheese paneer paneer cheddar lancashire. Mascarpone bocconcini airedale queso fondue airedale say cheese.</p>
+      <p>Fromage fromage frais cow st. agur blue cheese paneer paneer cheddar lancashire. Mascarpone bocconcini airedale queso fondue airedale say cheese. Danish fontina cheesy grin cheesy grin.</p>
     </div>
     <div class="semi-hard-cheese">
       <h1>Semi-Hard</h1>
       <h2> Select One</h2>
-      <p>Everyone loves taleggio roquefort. Chalk and cheese cheese strings pepper jack cheesecake cheesecake gouda boursin boursin. </p>
+      <p>Everyone loves taleggio roquefort. Chalk and cheese cheese strings pepper jack cheesecake cheesecake gouda boursin boursin. Ricotta cheddar.</p>
     </div>
     <div class="semi-soft-cheese">
       <h1>Semi Soft</h1>
       <h2> Select One</h2>
-      <p>The big cheese cheeseburger say cheese airedale caerphilly queso lancashire caerphilly. </p>
+      <p>The big cheese cheeseburger say cheese airedale caerphilly queso lancashire caerphilly. Smelly cheese macaroni cheese fondue ricotta macaroni cheese bavarian bergkase cow monterey jack.</p>
     </div>
     <div class="soft-cheese">
       <h1>Soft</h1>
       <h2> Select One</h2>
-      <p>Airedale lancashire ricotta. Squirty cheese roquefort cheeseburger cheesecake cheesy grin manchego cheese on toast emmental.</p>
+      <p>Airedale lancashire ricotta. Squirty cheese roquefort cheeseburger cheesecake cheesy grin manchego cheese on toast emmental. Bavarian bergkase cream cheese cottage cheese croque monsieur jarlsberg macaroni cheese fondue airedale.</p>
     </div>
   </div>
 </div>
@@ -284,7 +292,7 @@
       <div class="modal-body">
         <form id="create-board">
           <div class="form-group">
-            <input type="text" name="board[name]" class="form-control" id="exampleInputName1" placeholder="I love cheese">
+            <input type="text" name="board[name]" class="form-control" id="exampleInputName1" placeholder="You gouda brie kidding me">
           </div>
           <button type="submit" class="btn btn-primary" id="create-board-button">Create</button>
         </form>
@@ -344,8 +352,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">My Board</h4>
-        <a href="#" class="edit-link" data-dismiss="modal" data-toggle="modal" data-target="#edit-board-modal">Edit Name</a>
+        <h4 class="modal-title" id="myModalLabel">My Board</h4><a href="#" class="edit-link" data-dismiss="modal" data-toggle="modal" data-target="#edit-board-modal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
       </div>
       <div class="modal-body">
         <div class="single-saved-board-body">
@@ -353,9 +360,9 @@
       </div>
       <div class="modal-footer">
         <form id="single-saved-board">
-          <button type="submit" class="btn btn-primary" id="single-saved-board-button">View Board</button>
+          <button type="submit" class="btn btn-primary" id="single-saved-board-button">View Cheeses</button>
         </form>
-        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#delete-board-modal">Delete</a>
+        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#delete-board-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
         <a href="#" data-dismiss="modal" data-toggle="modal">Cancel</a>
       </div>
       </div>

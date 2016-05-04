@@ -1,7 +1,7 @@
 'use strict';
 
 const app = {
-  api: 'http://localhost:3000',
+  api: 'https://gentle-everglades-70199.herokuapp.com',
 };
 
 module.exports = app;

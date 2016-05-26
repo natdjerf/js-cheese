@@ -1,20 +1,15 @@
 'use strict';
 
 const app = require('../app-data.js');
-// const cheeseUi = require('./cheese-ui');
 
-let currentUser = {
-  id: undefined,
-  token:''
-};
 
 // Handlebars JSON Render Events: Saved Boards
 const savedBoards = (success, failure) => {
   $.ajax({
     method: 'GET',
-    url: app.api + '/boards',
+    url: app.server.api + '/boards',
     headers:{
-        Authorization: 'Token token=' + currentUser.token,
+        Authorization: 'Token token=' + app.currentUser.token,
     },
   }).done(success)
   .fail(failure);
@@ -45,9 +40,9 @@ let displayBoards = function(boards){
 
 let getBoards = function(){
   $.ajax({
-    url: app.api + '/boards',
+    url: app.server.api + '/boards',
     headers:{
-        Authorization: 'Token token=' + currentUser.token,
+        Authorization: 'Token token=' + app.currentUser.token,
     },
   }).done(function(boards){
     displayBoards(boards);
@@ -71,9 +66,9 @@ const signUpFailure = (error) => {
 };
 
 const signInSuccess = (data) => {
-  currentUser.token = data.user.token;
-  currentUser.id = data.user.id;
-  console.log(currentUser);
+  app.currentUser.token = data.user.token;
+  app.currentUser.id = data.user.id;
+  console.log(app.currentUser);
   getBoards();
   $("#sign-in-modal").modal('hide');
   $(".dropdown").removeClass('hidden');
@@ -90,8 +85,8 @@ const signInFailure = (error) => {
 };
 
 const signOutSuccess = () => {
-  currentUser.token = '';
-  currentUser.id = undefined;
+  app.currentUser.token = '';
+  app.currentUser.id = undefined;
   console.log('signed out');
   $(".cheese").addClass('hidden');
   $("#sign-out-modal").modal('hide');
@@ -119,7 +114,6 @@ module.exports= {
   getBoards,
   savedBoardsSuccess,
   savedBoardsFailure,
-  currentUser,
   signInSuccess,
   signInFailure,
   signUpSuccess,

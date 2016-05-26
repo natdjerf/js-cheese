@@ -3,7 +3,7 @@
 const cheeseApi = require('./cheese-api');
 const cheeseUi = require('./cheese-ui');
 const getFormFields = require('../../../lib/get-form-fields');
-const authUi = require('./user-ui');
+const app = require('../app-data.js');
 
 
 const cheeseHandlers = () => {
@@ -12,7 +12,7 @@ const cheeseHandlers = () => {
     event.preventDefault();
     let data = getFormFields(this);
     console.log(data);
-    data.board.user_id = authUi.currentUser.id;
+    data.board.user_id = app.currentUser.id;
     console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess,cheeseUi.failure, data);
   });
@@ -42,7 +42,7 @@ const cheeseHandlers = () => {
   $('#edit-board').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
-    data.board.user_id = authUi.currentUser.id;
+    data.board.user_id = app.currentUser.id;
     console.log(data);
     console.log('Edit Board clicked');
     cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);

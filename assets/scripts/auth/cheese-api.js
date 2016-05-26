@@ -1,17 +1,15 @@
 'use strict';
 
 const app = require('../app-data.js');
-const authUi = require('./user-ui.js');
-const cheeseUi = require('./cheese-ui');
 
 
 const createBoard = (success, failure, data) => {
   console.log(data);
   $.ajax({
     method: 'POST',
-    url: app.api + '/boards',
+    url: app.server.api + '/boards',
     headers:{
-        Authorization: 'Token token=' + authUi.currentUser.token,
+        Authorization: 'Token token=' + app.currentUser.token,
     },
     data,
   }).done(success, data)
@@ -22,9 +20,9 @@ const createBoard = (success, failure, data) => {
 const deleteBoard = (success, failure) => {
   $.ajax({
     method: 'DELETE',
-    url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
+    url: app.server.api + '/boards/' + app.currentBoard.board_id,
     headers:{
-        Authorization: 'Token token=' + authUi.currentUser.token,
+        Authorization: 'Token token=' + app.currentUser.token,
     },
   }).done(success)
   .fail(failure);
@@ -34,9 +32,9 @@ const deleteBoard = (success, failure) => {
 const editBoard = (success, failure, data) => {
   $.ajax({
     method: 'PATCH',
-    url: app.api + '/boards/' + cheeseUi.currentBoard.board_id,
+    url: app.server.api + '/boards/' + app.currentBoard.board_id,
     headers:{
-        Authorization: 'Token token=' + authUi.currentUser.token,
+        Authorization: 'Token token=' + app.currentUser.token,
     },
     data,
   }).done(success, data)

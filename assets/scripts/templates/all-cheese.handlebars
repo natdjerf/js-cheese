@@ -2,7 +2,11 @@
   <div class="container">
     {{#each cheeses}}
       <div class="{{this.family}}-cheese section col-lg-15">
-        <form id="add-{{this.name}}">
+        <div class="{{this.name}}">
+          <h2>{{this.name}}</h2>
+          <button type="button" data-id="{{this.id}}" class="btn btn-primary get-details" data-toggle="modal" data-target="#get-details-modal">Get Details</button>
+        </div>
+        <!-- <form id="add-{{this.name}}">
           <div class="{{this.name}}" data-id="{{this.id}}">
               <h2>{{this.name}}</h2>
               <p>Milk type: {{this.milk_type}}</p>
@@ -10,7 +14,7 @@
               <p>Flavor profile: {{this.flavor}}</p>
             <button type="submit" name="cheese[{{this.id}}]" class="btn btn-primary add-cheese-button">Add to Board</button>
           </div>
-        </form>
+        </form> -->
       </div>
     {{/each}}
   </div>

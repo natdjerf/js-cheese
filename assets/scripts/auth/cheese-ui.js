@@ -1,8 +1,10 @@
 'use strict';
 
-// const cheeseApi = require('./cheese-api');
-const getFormFields = require('../../../lib/get-form-fields');
+const cheeseApi = require('./cheese-api');
+// const getFormFields = require('../../../lib/get-form-fields');
 const app = require('../app-data.js');
+const display = require('../display.js');
+
 
 // scroll function
 function scrollToID(id, speed){
@@ -16,22 +18,8 @@ function scrollToID(id, speed){
 	}
 }
 
-
-// Handlebars JSON Render Events: Cheese Actions
-const addToBoard = (success, failure, data) => {
-  $.ajax({
-    method: 'POST',
-    url: app.server.api + '/cheese_additions',
-    headers:{
-        Authorization: 'Token token=' + app.currentUser.token,
-    },
-    data,
-  }).done(success)
-  .fail(failure);
-};
-
-
 const addToBoardSuccess = (data) => {
+	cheeseApi.getCheeses(display.displayCheeses, editBoardFailure);
   console.log(data);
 };
 const addToBoardFailure = (error) => {
@@ -47,109 +35,59 @@ const singleSavedBoardFailure = (error) => {
   console.error(error);
 };
 
-// Handlebars render:
-let displayCurrentBoard = function(cheeses){
-  let currentBoardTemplate = require('./../templates/current-board.handlebars');
-    $('.single-saved-board-body').html(currentBoardTemplate({
-      cheeses : cheeses.cheeses
-    }));
-    $('.single-saved-board-body').addClass('hidden');
-    $('#single-saved-board').on('submit', function (event) {
-      event.preventDefault();
-      console.log('Get Details clicked.');
-      singleSavedBoard(singleSavedBoardSuccess, singleSavedBoardFailure);
-    });
-};
 
-
-let getCurrentBoard = function(){
-  $.ajax({
-    url: app.server.api + '/boards/' + app.currentBoard.board_id,
-    headers:{
-        Authorization: 'Token token=' + app.currentUser.token,
-    },
-  }).done(function(cheeses){
-    displayCurrentBoard(cheeses);
-    console.log(cheeses);
-  });
-};
 
 // Handlebars render:
-let displayCheeses = function(cheeses){
-  let allCheeseTemplate = require('./../templates/all-cheese.handlebars');
-    $('.all-cheese').html(allCheeseTemplate({
-      cheeses : cheeses.cheeses
-    }));
-    $(".semi-hard-cheese").addClass('hidden');
-    $(".soft-cheese").addClass('hidden');
-    $(".semi-soft-cheese").addClass('hidden');
-
-
-    $('.hard-cheese .add-cheese-button').on('click', function (event) {
-     event.preventDefault();
-    $(".hard-cheese").addClass('hidden');
-    $(".semi-hard-cheese").removeClass('hidden');
-    });
-
-    $('.semi-hard-cheese .add-cheese-button').on('click', function (event) {
-     event.preventDefault();
-     $(".semi-hard-cheese").addClass('hidden');
-     $(".semi-soft-cheese").removeClass('hidden');
-    });
-
-    $('.semi-soft-cheese .add-cheese-button').on('click', function (event) {
-     event.preventDefault();
-     $(".semi-soft-cheese").addClass('hidden');
-    	$(".soft-cheese").removeClass('hidden');
-    });
-
-    $('.soft-cheese .add-cheese-button').on('click', function (event) {
-     event.preventDefault();
-     $(".soft-cheese").addClass('hidden');
-		 $('.single-saved-board-body').html('');
-     getCurrentBoard();
-     $("#single-saved-board-modal").modal('show');
-		 $("#single-saved-board-modal").find( "h4" ).text(app.currentBoard.name);
-    });
-
-    // add to cheese_addition table
-    $('.add-cheese-button').on('click', function (event) {
-     event.preventDefault();
-     console.log('Add to Board clicked.');
-     let data = getFormFields(this);
-     data.cheese_addition = {};
-     data.cheese_addition.cheese_id = $(event.target).closest('div').data('id');
-     data.cheese_addition.board_id = app.currentBoard.board_id;
-     console.log(data);
-     addToBoard(addToBoardSuccess,addToBoardFailure, data);
-    });
-
-};
-
-let getCheeses = function(){
-  $.ajax({
-    url: app.server.api + '/cheeses/',
-  }).done(function(cheeses){
-    displayCheeses(cheeses);
-    console.log(cheeses);
-  });
-};
-
-
-// Handlebars JSON Render Events: Board Action
-const singleSavedBoard = (success, failure) => {
-  $.ajax({
-    method: 'GET',
-    url: app.server.api + '/boards/' + app.currentBoard.board_id,
-    headers:{
-        Authorization: 'Token token=' + app.currentUser.token,
-    },
-  }).done(success)
-  .fail(failure);
-};
-
-
-
+// let displayCheeses = function(cheeses){
+//   let allCheeseTemplate = require('./../templates/all-cheese.handlebars');
+//     $('.all-cheese').html(allCheeseTemplate({
+//       cheeses : cheeses.cheeses
+//     }));
+//     $(".semi-hard-cheese").addClass('hidden');
+//     $(".soft-cheese").addClass('hidden');
+//     $(".semi-soft-cheese").addClass('hidden');
+//
+//
+//     $('.hard-cheese .add-cheese-button').on('click', function (event) {
+//      event.preventDefault();
+//     $(".hard-cheese").addClass('hidden');
+//     $(".semi-hard-cheese").removeClass('hidden');
+//     });
+//
+//     $('.semi-hard-cheese .add-cheese-button').on('click', function (event) {
+//      event.preventDefault();
+//      $(".semi-hard-cheese").addClass('hidden');
+//      $(".semi-soft-cheese").removeClass('hidden');
+//     });
+//
+//     $('.semi-soft-cheese .add-cheese-button').on('click', function (event) {
+//      event.preventDefault();
+//      $(".semi-soft-cheese").addClass('hidden');
+//     	$(".soft-cheese").removeClass('hidden');
+//     });
+//
+//     $('.soft-cheese .add-cheese-button').on('click', function (event) {
+//      event.preventDefault();
+//      $(".soft-cheese").addClass('hidden');
+// 		 $('.single-saved-board-body').html('');
+//      getCurrentBoard();
+//      $("#single-saved-board-modal").modal('show');
+// 		 $("#single-saved-board-modal").find( "h4" ).text(app.currentBoard.name);
+//     });
+//
+//     // add to cheese_addition table
+//     $('.add-cheese-button').on('click', function (event) {
+//      event.preventDefault();
+//      console.log('Add to Board clicked.');
+//      let data = getFormFields(this);
+//      data.cheese_addition = {};
+//      data.cheese_addition.cheese_id = $(event.target).closest('div').data('id');
+//      data.cheese_addition.board_id = app.currentBoard.board_id;
+//      console.log(data);
+//      addToBoard(addToBoardSuccess,addToBoardFailure, data);
+//     });
+//
+// };
 
 
 
@@ -157,7 +95,7 @@ const createBoardSuccess = (data) => {
   app.currentBoard.board_id = data.board.id;
   app.currentBoard.name = data.board.name;
   console.log(app.currentBoard);
-  getCheeses();
+  cheeseApi.getCheeses(display.displayCheeses, editBoardFailure);
   $("#create-board-modal").modal('hide');
   $(".cheese").removeClass('hidden');
 	$(".hard-cheese").removeClass('hidden');
@@ -193,6 +131,7 @@ const editBoardSuccess = (data) => {
   $("#single-saved-board-modal").find( "h4" ).text(app.currentBoard.name);
   $("#single-saved-board-modal").modal('show');
 };
+
 const editBoardFailure = (error) => {
   console.error(error);
 };
@@ -200,12 +139,12 @@ const editBoardFailure = (error) => {
 
 
 
+
+
+
+
 module.exports= {
   scrollToID,
-  getCheeses,
-  addToBoard,
-  getCurrentBoard,
-  singleSavedBoard,
   createBoardSuccess,
   createBoardFailure,
   addToBoardSuccess,

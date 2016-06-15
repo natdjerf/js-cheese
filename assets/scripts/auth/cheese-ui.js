@@ -4,21 +4,6 @@ const cheeseApi = require('./cheese-api');
 const app = require('../app-data.js');
 const display = require('../display.js');
 
-
-// scroll function
-function scrollToID(id, speed) {
-  let offSet = 50;
-  let targetOffset = $(id).offset().top - offSet;
-  let mainNav = $('#main-nav');
-  $('html,body').animate({
-    scrollTop: targetOffset
-  }, speed);
-  if (mainNav.hasClass("open")) {
-    mainNav.css("height", "1px").removeClass("in").addClass("collapse");
-    mainNav.removeClass("open");
-  }
-}
-
 const failure = (error) => {
   console.error(error);
 };
@@ -27,11 +12,11 @@ const createBoardSuccess = (data) => {
   app.currentBoard.board_id = data.board.id;
   app.currentBoard.name = data.board.name;
   console.log(app.currentBoard);
-  cheeseApi.getCheeses(display.displayHardCheeses, editBoardFailure);
+  cheeseApi.getCheeses(display.displayHardCheeses, failure);
   $("#create-board-modal").modal('hide');
 
   $(".hard-cheese").removeClass('hidden');
-  scrollToID("#cheeses", 750);
+  app.scrollToID("#cheeses", 750);
 };
 
 const createBoardFailure = (error) => {
@@ -80,10 +65,6 @@ const editBoardSuccess = (data) => {
   $("#view-current-board-modal").modal('show');
 };
 
-const editBoardFailure = (error) => {
-  console.error(error);
-};
-
 
 
 
@@ -92,18 +73,15 @@ const editBoardFailure = (error) => {
 
 
 module.exports = {
-  scrollToID,
   createBoardSuccess,
   createBoardFailure,
   addHardToBoardSuccess,
   addSemiHardToBoardSuccess,
   addSemiSoftToBoardSuccess,
   addSoftToBoardSuccess,
-	// getCurrentBoardSuccess,
   addToBoardFailure,
   deleteBoardSuccess,
   deleteBoardFailure,
   editBoardSuccess,
-  editBoardFailure,
 	failure,
 };

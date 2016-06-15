@@ -14,15 +14,30 @@ let currentBoard = {
   name: '',
 };
 
-// User storage
+// User Temporary storage
 let currentUser = {
   id: undefined,
   token:''
 };
 
+// Scroll function
+function scrollToID(id, speed) {
+  let offSet = 50;
+  let targetOffset = $(id).offset().top - offSet;
+  let mainNav = $('#main-nav');
+  $('html,body').animate({
+    scrollTop: targetOffset
+  }, speed);
+  if (mainNav.hasClass("open")) {
+    mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+    mainNav.removeClass("open");
+  }
+}
+
 
 module.exports = {
   server,
   currentBoard,
-  currentUser
+  currentUser,
+  scrollToID
 };

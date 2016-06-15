@@ -2,7 +2,6 @@
 
 const app = require('../app-data.js');
 
-
 // Handlebars JSON Render Events: Saved Boards
 const savedBoards = (success, failure) => {
   $.ajax({
@@ -73,9 +72,9 @@ const signInSuccess = (data) => {
   $("#sign-in-modal").modal('hide');
   $(".dropdown").removeClass('hidden');
   $(".sign-in-button").addClass('hidden');
-  $(".arrow-down-create").removeClass('hidden');
+  $(".create-instructions").removeClass('hidden');
   $(".access-saved-boards").removeClass('hidden');
-  // cheeseUi.scrollToID("#anatomy", 750);
+  app.scrollToID("#create", 750);
 };
 
 const signInFailure = (error) => {

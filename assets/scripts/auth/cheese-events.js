@@ -49,6 +49,12 @@ const cheeseHandlers = () => {
     console.log('Edit Board clicked');
     cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);
   });
+  $('#saved-boards-form').on('click', '#saved-boards-button', function(event) {
+    event.preventDefault();
+    cheeseApi.getBoards(cheeseUi.getBoardsSuccess, cheeseUi.failure);
+  });
+
+
   // trigger add cheese modal:
   $('#all-cheeses').on('click', '.get-details', function(event) {
     event.preventDefault();
@@ -112,6 +118,7 @@ const cheeseHandlers = () => {
     console.log(app.currentBoard.name);
   	$("#view-current-board-modal").find("h4").text(app.currentBoard.name);
   });
+
 
 
 

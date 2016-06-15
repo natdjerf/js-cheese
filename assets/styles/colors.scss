@@ -8,6 +8,8 @@ $dark-red: #b92f2c;
 $dark-gray: #0f100d;
 $off-white: #f5f0ef;
 $yellow: #f4b424;
+$yellow-shadow: #020403;
+
 
 
 
@@ -29,21 +31,22 @@ body {
     }
 }
 
+
+h1,
 .scroll-link {
-  color: $black;
+  color: $yellow;
+  text-shadow: 0 1px 0 $yellow-shadow;
 }
 
-.launch-create {
-  color: $off-white;
+.anatomy-cheese-board,
+.create-intructions {
+  color: $beige;
 }
 
-h1 {
+a .create-intructions {
   color: $yellow;
 }
 
-.anatomy-cheese-board {
-  color: $beige;
-}
 
 .all-cheese {
   color: $beige;

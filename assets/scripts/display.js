@@ -48,6 +48,26 @@ let displayCurrentBoard = function(cheeses) {
   }));
 };
 
+let displayBoards = function(boards){
+  let allBoardsTemplate = require('./templates/all-boards.handlebars');
+    $('.saved-boards-body').html(allBoardsTemplate({
+      boards : boards.boards
+    }));
+    // $('.saved-boards-body').addClass('hidden');
+    // $('#saved-boards').on('submit', function (event) {
+    //   event.preventDefault();
+    //   console.log('Get Saved Boards clicked.');
+      // savedBoards(savedBoardsSuccess, savedBoardsFailure);
+    // });
+};
+
+let displayCheeseDetails = function(cheeses) {
+  let cheeseModalTemplate = require('./templates/cheese-modal.handlebars');
+  $('.view-cheese-details-body').html(cheeseModalTemplate({
+    cheeses: cheeses.cheeses
+  }));
+};
+
 
 
 module.exports = {
@@ -55,5 +75,7 @@ module.exports = {
   displaySemiHardCheeses,
   displaySemiSoftCheeses,
   displaySoftCheeses,
-  displayCurrentBoard
+  displayCurrentBoard,
+  displayBoards,
+  displayCheeseDetails
 };

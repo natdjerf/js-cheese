@@ -11,7 +11,6 @@ const failure = (error) => {
 const createBoardSuccess = (data) => {
   app.currentBoard.board_id = data.board.id;
   app.currentBoard.name = data.board.name;
-  console.log(app.currentBoard);
   cheeseApi.getCheeses(display.displayHardCheeses, failure);
   $("#create-board-modal").modal('hide');
 
@@ -51,7 +50,7 @@ const deleteBoardSuccess = () => {
   $("#view-current-board-modal").find("p").text('');
   $("#view-current-board-modal").find("h4").text('');
   $("#delete-board-modal").modal('hide');
-  $(".launch-create").removeClass('hidden');
+  $(".create-instructions").removeClass('hidden');
 };
 const deleteBoardFailure = (error) => {
   console.error(error);
@@ -63,6 +62,10 @@ const editBoardSuccess = (data) => {
   $("#edit-board-modal").modal('hide');
   $("#view-current-board-modal").find("h4").text(app.currentBoard.name);
   $("#view-current-board-modal").modal('show');
+};
+
+const getBoardsSuccess = () => {
+		cheeseApi.getBoards(display.displayBoards, failure);
 };
 
 
@@ -83,5 +86,6 @@ module.exports = {
   deleteBoardSuccess,
   deleteBoardFailure,
   editBoardSuccess,
+	getBoardsSuccess,
 	failure,
 };

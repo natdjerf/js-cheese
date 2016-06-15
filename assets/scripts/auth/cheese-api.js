@@ -84,7 +84,15 @@ const editBoard = (success, failure, data) => {
   .fail(failure);
 };
 
-
+const getBoards = function(success, failure){
+  $.ajax({
+    url: app.server.api + '/boards',
+    headers:{
+        Authorization: 'Token token=' + app.currentUser.token,
+    },
+  }).done(success)
+    .fail(failure);
+};
 
 
 
@@ -97,5 +105,6 @@ module.exports = {
   singleSavedBoard,
   createBoard,
   deleteBoard,
-  editBoard
+  editBoard,
+  getBoards
 };

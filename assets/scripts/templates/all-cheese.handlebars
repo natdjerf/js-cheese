@@ -1,10 +1,12 @@
+
+
 <div class="cheese section row">
   <div class="container">
     {{#each cheeses}}
       <div class="{{this.family}}-cheese section col-lg-15">
         <div class="{{this.name}}">
           <h2>{{this.name}}</h2>
-          <button type="button" data-id="{{this.id}}" class="btn btn-primary get-details" data-toggle="modal" data-target="#get-details-modal">Get Details</button>
+          <button type="button" data-id="{{this.id}}" data-type="{{this.family}}" class="btn btn-primary get-details" data-toggle="modal" data-target="#get-details-modal">Get Details</button>
         </div>
         <!-- <form id="add-{{this.name}}">
           <div class="{{this.name}}" data-id="{{this.id}}">

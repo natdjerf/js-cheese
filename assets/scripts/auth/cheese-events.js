@@ -16,9 +16,6 @@ const cheeseHandlers = () => {
     data.board.user_id = app.currentUser.id;
     console.log('Create Board clicked.');
     cheeseApi.createBoard(cheeseUi.createBoardSuccess, cheeseUi.failure, data);
-    $(".semi-hard-cheese").addClass('hidden');
-    $(".soft-cheese").addClass('hidden');
-    $(".semi-soft-cheese").addClass('hidden');
   });
   // navigation click actions
   $('.scroll-link').on('click', function(event) {
@@ -54,23 +51,64 @@ const cheeseHandlers = () => {
     console.log('Edit Board clicked');
     cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);
   });
-
-  // these are the add cheese events; testing:
+  // Trigger add cheese modal:
   $('#all-cheeses').on('click', '.get-details', function(event) {
     event.preventDefault();
     let cheeseId = $(event.target).attr('data-id');
+    let cheeseType = $(event.target).attr('data-type');
     $('.add-cheese-button').attr('data-id', cheeseId);
+    $('.add-cheese-button').addClass(cheeseType);
   });
-
-  // add to cheese_addition table
-  $('#add-cheese-form').on('submit', function(event) {
+  // Add a cheese from each family:
+  $('#add-cheese-form').on('click', '.hard', function(event) {
     event.preventDefault();
     let data = getFormFields(this);
     let cheeseId = $('.add-cheese-button').attr('data-id');
     data.cheese_addition = {};
     data.cheese_addition.cheese_id = cheeseId;
     data.cheese_addition.board_id = app.currentBoard.board_id;
-    cheeseApi.addToBoard(cheeseUi.addToBoardSuccess, cheeseUi.addToBoardFailure, data);
+    cheeseApi.addToBoard(cheeseUi.addHardBoardSuccess, cheeseUi.addToBoardFailure, data);
+    $("#get-details-modal").modal('hide');
+    $(".hard-cheese").addClass('hidden');
+    $('.add-cheese-button').removeClass('hard');
+    $(".semi-hard-cheese").removeClass('hidden');
+  });
+  $('#add-cheese-form').on('click', '.semi-hard', function(event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    let cheeseId = $('.add-cheese-button').attr('data-id');
+    data.cheese_addition = {};
+    data.cheese_addition.cheese_id = cheeseId;
+    data.cheese_addition.board_id = app.currentBoard.board_id;
+    cheeseApi.addToBoard(cheeseUi.addSemiHardToBoardSuccess, cheeseUi.addToBoardFailure, data);
+    $("#get-details-modal").modal('hide');
+    $('.add-cheese-button').removeClass('semi-hard');
+    $(".semi-hard-cheese").addClass('hidden');
+    $(".semi-soft-cheese").removeClass('hidden');
+  });
+  $('#add-cheese-form').on('click', '.semi-soft', function(event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    let cheeseId = $('.add-cheese-button').attr('data-id');
+    data.cheese_addition = {};
+    data.cheese_addition.cheese_id = cheeseId;
+    data.cheese_addition.board_id = app.currentBoard.board_id;
+    cheeseApi.addToBoard(cheeseUi.addSemiSoftToBoardSuccess, cheeseUi.addToBoardFailure, data);
+    $('.add-cheese-button').removeClass('semi-soft');
+    $(".semi-soft-cheese").addClass('hidden');
+    $(".soft-cheese").removeClass('hidden');
+  });
+  $('#add-cheese-form').on('click', '.soft', function(event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    let cheeseId = $('.add-cheese-button').attr('data-id');
+    data.cheese_addition = {};
+    data.cheese_addition.cheese_id = cheeseId;
+    data.cheese_addition.board_id = app.currentBoard.board_id;
+    cheeseApi.addToBoard(cheeseUi.addSoftToBoardSuccess, cheeseUi.addToBoardFailure, data);
+    $("#get-details-modal").modal('hide');
+    $('.add-cheese-button').removeClass('soft');
+    $(".soft-cheese").addClass('hidden');
   });
 
 

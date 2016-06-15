@@ -3,13 +3,13 @@
 const app = require('../app-data.js');
 const display = require('../display.js');
 
-// these are temporary test adds:
 const getCheeses = function(success, failure){
   $.ajax({
     url: app.server.api + '/cheeses/',
-  }).done((cheeses) => {
-    display.displayCheeses(cheeses);
-  })
+  }).done(success)
+  // }).done((cheeses) => {
+  //   display.displayHardCheeses(cheeses);
+  // })
   .fail(failure);
 };
 

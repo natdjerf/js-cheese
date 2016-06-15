@@ -64,17 +64,14 @@
         <div class="anatomy-desc section">
           <p>The art of the perfect cheese board is simple; choose between 3 and 4 cheeses for your platter: 1. A firm cheese - think along the lines of a cheddar, and you can’t go wrong. 2. A soft cheese - Camembert and Brie are always crowd pleasers. 3. A semi-soft that's pliable, mellow, and earthy. 4. A blue - no need for explanation there. Offer a range of textures in cheeses, from soft goat’s cheeses and creamy bries and camemberts to hard cheeses and just slightly crumbly blue cheeses. Something old, something new, something goat, something blue. Arrange cheeses in a clockwise fashion from mildest to most pungent and complex. Don't let the cheese stand alone. Select two or three accompaniments with contrasting flavors and textures. One easy way to choose: Follow the "what grows together, goes together" rule. Bon appétit.</p>
         </div>
-        <h2>create your board</h2>
-        <div class="create-instructions">
-          <p>Select one cheese from each family: hard, semi-hard, semi-soft, and soft.
+
+        <div class="create-instructions" id="create">
+          <a href="#" data-toggle="modal" data-target="#create-board-modal">
+          <h2 class="try" >create your board <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></h2>
+          </a>
+          <p>Select one cheese from each family: hard, semi-hard, semi-soft, and soft.</p>
         </div>
 
-        <div class="arrow-down-create section">
-          <a href="#" class="launch-create" data-toggle="modal" data-target="#create-board-modal">
-          <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-          <h3>create board</h3>
-          </a>
-        </div>
     </div>
   </div>
 </div>
@@ -104,7 +101,7 @@
   </div>
 </div>
 
-<div class="all-cheese section">
+<div class="all-cheese section" id="all-cheeses">
 </div>
 
 </div>
@@ -338,7 +335,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <form id="saved-boards">
+        <form id="saved-boards-form">
           <div class="form-group">
           </div>
           <button type="submit" class="btn btn-primary" id="saved-boards-button">Search</button>
@@ -350,22 +347,19 @@
 </div>
 <!-- End Saved Boards Modal -->
 
-<!-- Single Saved Board Modal -->
-<div class="modal fade" id="single-saved-board-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- View Current Board Modal -->
+<div class="modal fade" id="view-current-board-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">My Board</h4><a href="#" class="edit-link" data-dismiss="modal" data-toggle="modal" data-target="#edit-board-modal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+        <h4>My Board</h4>
+        <a href="#" class="edit-link" data-dismiss="modal"data-toggle="modal" data-target="#edit-board-modal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
       </div>
       <div class="modal-body">
-        <div class="single-saved-board-body">
+        <div class="view-current-board-body">
         </div>
       </div>
       <div class="modal-footer">
-        <form id="single-saved-board">
-          <button type="submit" class="btn btn-primary" id="single-saved-board-button">View Cheeses</button>
-        </form>
         <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#delete-board-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
         <a href="#" data-dismiss="modal" data-toggle="modal">Cancel</a>
       </div>
@@ -373,7 +367,7 @@
     </div>
   </div>
 </div>
-<!-- End Single Saved Board Modal -->
+<!-- End View Current Board Modal -->
 
 <!-- Delete Board Modal -->
 <div class="modal fade" id="delete-board-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -414,5 +408,29 @@
   </div>
 </div>
 <!-- End Edit Board Modal -->
+
+<!-- Get Details Modal -->
+<div id="get-details-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="view-cheese-details-body">
+        </div>
+        <form id="add-cheese-form">
+          <button class="btn btn-primary add-cheese-button" type="submit" name="action">Add to Board </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" data-toggle="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Get Details Modal -->
+
+
+
+
+
 
 </html>

@@ -48,8 +48,7 @@ h1 {
   margin-top: 150px;
 }
 
-.scroll-link,
-.launch-create {
+.scroll-link {
   font-size: 3em;
   margin-bottom: 0;
   margin-left: 50%;
@@ -57,16 +56,7 @@ h1 {
   margin-top: 0;
   position: relative;
   text-align: center;
-  top: 300px;
 }
-
-.arrow-down-create h3 {
-  margin-right: -2%;
-  margin-top: 0;
-}
-
-
-
 
 .about {
   background: url(http://s.iamafoodblog.com/wp-content/uploads/2015/04/how-to-make-the-ultimate-cheese-plate-5w.jpg) no-repeat center center;
@@ -75,7 +65,7 @@ h1 {
   -o-background-size: cover;
   background-size: cover;
 
-  height: 600px;
+  height: 800px;
   position: relative;
   width: 100%;
 }
@@ -83,12 +73,12 @@ h1 {
 
 .anatomy-cheese-board {
   font-family: Courier;
-  min-height: 600px;
+  min-height: 800px;
   position: relative;
   width: 100%;
   h2 {
-    margin-bottom: 70px;
-    margin-top: 70px;
+    margin-bottom: 5%;
+    margin-top: 10%;
   }
 }
 
@@ -116,16 +106,28 @@ h1 {
   font-size: 18px;
 }
 
-.col-lg-15 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
+
+.cheese-handlebars {
+  padding: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
 }
-.col-xs-15 {
-    width: 20%;
-    float: left;
+
+.item {
+  padding: 5px;
+  margin-top: 10px;
+  padding-right: 10px;
+  text-align: center;
 }
+
 
 @media (min-width: 768px) {
 .col-sm-15 {

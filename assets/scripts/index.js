@@ -10,11 +10,10 @@ const cheeseEvents = require('./auth/cheese-events');
 // on document ready:
 $(() => {
   events.addHandlers();
-  // cheeseEvents.getCheeses();
   cheeseEvents.cheeseHandlers();
   console.log('Page loaded!');
   $(".dropdown").addClass('hidden');
-  $(".arrow-down-create").addClass('hidden');
+  $(".create-instructions").addClass('hidden');
   $(".cheese").addClass('hidden');
   $(".hard-cheese").addClass('hidden');
   $(".semi-hard-cheese").addClass('hidden');

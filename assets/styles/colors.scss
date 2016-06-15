@@ -8,6 +8,8 @@ $dark-red: #b92f2c;
 $dark-gray: #0f100d;
 $off-white: #f5f0ef;
 $yellow: #f4b424;
+$yellow-shadow: #020403;
+
 
 
 
@@ -23,31 +25,33 @@ body {
 
 .family-descriptions {
   color: $beige;
-
-  .h1 {
-    color: $dark-maroon;
-    }
 }
 
+
+h1,
 .scroll-link {
-  color: $black;
+  color: $yellow;
+  text-shadow: 0 1px 0 $yellow-shadow;
 }
 
-.launch-create {
-  color: $off-white;
+.anatomy-cheese-board,
+.create-intructions {
+  color: $beige;
 }
 
-h1 {
+.try {
   color: $yellow;
 }
 
-.anatomy-cheese-board {
-  color: $beige;
-}
 
 .all-cheese {
   color: $beige;
 }
+
+a {
+  color: $beige;
+}
+
 
 .navbar-default .navbar-brand,
 .dropdown {
@@ -63,4 +67,12 @@ h1 {
 
 .close {
   color: $beige;
+}
+
+#get-details-modal {
+  color: $beige;
+}
+
+#get-details-modal h2 {
+  color: $yellow;
 }

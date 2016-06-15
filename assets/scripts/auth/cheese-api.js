@@ -7,13 +7,9 @@ const getCheeses = function(success, failure){
   $.ajax({
     url: app.server.api + '/cheeses/',
   }).done(success)
-  // }).done((cheeses) => {
-  //   display.displayHardCheeses(cheeses);
-  // })
   .fail(failure);
 };
 
-// Handlebars JSON Render Events: Cheese Actions
 const addToBoard = (success, failure, data) => {
   console.log(data);
   $.ajax({
@@ -27,16 +23,14 @@ const addToBoard = (success, failure, data) => {
   .fail(failure);
 };
 
-const getCurrentBoard = function(){
+const getCurrentBoard = function(success,failure){
   $.ajax({
     url: app.server.api + '/boards/' + app.currentBoard.board_id,
     headers:{
         Authorization: 'Token token=' + app.currentUser.token,
     },
-  }).done(function(cheeses){
-    display.displayCurrentBoard(cheeses);
-    console.log(cheeses);
-  });
+  }).done(success)
+  .fail(failure);
 };
 
 // Handlebars JSON Render Events: Board Action

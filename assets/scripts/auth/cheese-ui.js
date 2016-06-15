@@ -1,7 +1,6 @@
 'use strict';
 
 const cheeseApi = require('./cheese-api');
-// const getFormFields = require('../../../lib/get-form-fields');
 const app = require('../app-data.js');
 const display = require('../display.js');
 
@@ -20,6 +19,10 @@ function scrollToID(id, speed) {
   }
 }
 
+const failure = (error) => {
+  console.error(error);
+};
+
 const createBoardSuccess = (data) => {
   app.currentBoard.board_id = data.board.id;
   app.currentBoard.name = data.board.name;
@@ -37,50 +40,33 @@ const createBoardFailure = (error) => {
   $("#create-board-fail-modal").modal('show');
 };
 
-const addHardToBoardSuccess = (data) => {
-  cheeseApi.getCheeses(display.displaySemiHardCheeses, editBoardFailure);
+const addHardToBoardSuccess = () => {
+  cheeseApi.getCheeses(display.displaySemiHardCheeses, failure);
 };
 
-const addSemiHardToBoardSuccess = (data) => {
-  cheeseApi.getCheeses(display.displaySemiSoftCheeses, editBoardFailure);
+const addSemiHardToBoardSuccess = () => {
+  cheeseApi.getCheeses(display.displaySemiSoftCheeses, failure);
 };
 
-const addSemiSoftToBoardSuccess = (data) => {
-  cheeseApi.getCheeses(display.displaySoftCheeses, editBoardFailure);
+const addSemiSoftToBoardSuccess = () => {
+  cheeseApi.getCheeses(display.displaySoftCheeses, failure);
 };
 
-const addSoftToBoardSuccess = (data) => {
-  // cheeseApi.getCheeses(display.displaySoftCheeses, editBoardFailure);
+const addSoftToBoardSuccess = () => {
+  cheeseApi.getCurrentBoard(display.displayCurrentBoard, failure);
 };
-
-
-
-
-
 
 const addToBoardFailure = (error) => {
   console.error(error);
 };
 
-const singleSavedBoardSuccess = (data) => {
-  console.log(data);
-  console.log(data.cheeses);
-  $('.single-saved-board-body').removeClass('hidden');
-};
-
-const singleSavedBoardFailure = (error) => {
-  console.error(error);
-};
-
-
 const deleteBoardSuccess = () => {
   app.currentBoard.board_id = undefined;
   app.currentBoard.name = '';
-  $("#single-saved-board-modal").find("p").text('');
-  $("#single-saved-board-modal").find("h4").text('');
+  $("#view-current-board-modal").find("p").text('');
+  $("#view-current-board-modal").find("h4").text('');
   $("#delete-board-modal").modal('hide');
   $(".launch-create").removeClass('hidden');
-  console.log('board deleted');
 };
 const deleteBoardFailure = (error) => {
   console.error(error);
@@ -88,11 +74,10 @@ const deleteBoardFailure = (error) => {
 
 
 const editBoardSuccess = (data) => {
-  console.log(data);
   app.currentBoard.name = data.board.name;
   $("#edit-board-modal").modal('hide');
-  $("#single-saved-board-modal").find("h4").text(app.currentBoard.name);
-  $("#single-saved-board-modal").modal('show');
+  $("#view-current-board-modal").find("h4").text(app.currentBoard.name);
+  $("#view-current-board-modal").modal('show');
 };
 
 const editBoardFailure = (error) => {
@@ -114,11 +99,11 @@ module.exports = {
   addSemiHardToBoardSuccess,
   addSemiSoftToBoardSuccess,
   addSoftToBoardSuccess,
+	// getCurrentBoardSuccess,
   addToBoardFailure,
-  singleSavedBoardSuccess,
-  singleSavedBoardFailure,
   deleteBoardSuccess,
   deleteBoardFailure,
   editBoardSuccess,
   editBoardFailure,
+	failure,
 };

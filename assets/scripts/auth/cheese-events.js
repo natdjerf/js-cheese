@@ -4,8 +4,6 @@ const cheeseApi = require('./cheese-api');
 const cheeseUi = require('./cheese-ui');
 const getFormFields = require('../../../lib/get-form-fields');
 const app = require('../app-data.js');
-const display = require('../display.js');
-
 
 const cheeseHandlers = () => {
   // create board
@@ -51,7 +49,7 @@ const cheeseHandlers = () => {
     console.log('Edit Board clicked');
     cheeseApi.editBoard(cheeseUi.editBoardSuccess, cheeseUi.editBoardFailure, data);
   });
-  // Trigger add cheese modal:
+  // trigger add cheese modal:
   $('#all-cheeses').on('click', '.get-details', function(event) {
     event.preventDefault();
     let cheeseId = $(event.target).attr('data-id');
@@ -59,7 +57,7 @@ const cheeseHandlers = () => {
     $('.add-cheese-button').attr('data-id', cheeseId);
     $('.add-cheese-button').addClass(cheeseType);
   });
-  // Add a cheese from each family:
+  // add cheese - each family:
   $('#add-cheese-form').on('click', '.hard', function(event) {
     event.preventDefault();
     let data = getFormFields(this);
@@ -94,6 +92,7 @@ const cheeseHandlers = () => {
     data.cheese_addition.cheese_id = cheeseId;
     data.cheese_addition.board_id = app.currentBoard.board_id;
     cheeseApi.addToBoard(cheeseUi.addSemiSoftToBoardSuccess, cheeseUi.addToBoardFailure, data);
+    $("#get-details-modal").modal('hide');
     $('.add-cheese-button').removeClass('semi-soft');
     $(".semi-soft-cheese").addClass('hidden');
     $(".soft-cheese").removeClass('hidden');
@@ -109,6 +108,9 @@ const cheeseHandlers = () => {
     $("#get-details-modal").modal('hide');
     $('.add-cheese-button').removeClass('soft');
     $(".soft-cheese").addClass('hidden');
+    $("#view-current-board-modal").modal('show');
+    console.log(app.currentBoard.name);
+  	$("#view-current-board-modal").find("h4").text(app.currentBoard.name);
   });
 
 

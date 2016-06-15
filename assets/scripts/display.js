@@ -43,15 +43,9 @@ let displaySoftCheeses = function(cheeses) {
 // Handlebars render:
 let displayCurrentBoard = function(cheeses) {
   let currentBoardTemplate = require('./templates/current-board.handlebars');
-  $('.single-saved-board-body').html(currentBoardTemplate({
+  $('.view-current-board-body').html(currentBoardTemplate({
     cheeses: cheeses.cheeses
   }));
-  // $('.single-saved-board-body').addClass('hidden');
-  // $('#single-saved-board').on('submit', function (event) {
-  //   event.preventDefault();
-  //   console.log('Get Details clicked.');
-  // singleSavedBoard(singleSavedBoardSuccess, singleSavedBoardFailure);
-  // });
 };
 
 

@@ -68,8 +68,9 @@ const getBoardsSuccess = () => {
 		cheeseApi.getBoards(display.displayBoards, failure);
 };
 
-
-
+const getCheeseSuccess = () => {
+  cheeseApi.getCheese(display.displayCheeseDetails, failure);
+};
 
 
 
@@ -88,4 +89,5 @@ module.exports = {
   editBoardSuccess,
 	getBoardsSuccess,
 	failure,
+	getCheeseSuccess,
 };

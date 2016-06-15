@@ -11,13 +11,17 @@ const server = {
 // Board Temporary storage:
 let currentBoard = {
   board_id: undefined,
-  name: '',
+  name: ''
 };
 
 // User Temporary storage
 let currentUser = {
   id: undefined,
   token:''
+};
+
+let currentCheese = {
+  id: undefined,
 };
 
 // Scroll function
@@ -39,5 +43,6 @@ module.exports = {
   server,
   currentBoard,
   currentUser,
+  currentCheese,
   scrollToID
 };

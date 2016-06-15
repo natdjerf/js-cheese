@@ -25,10 +25,6 @@ body {
 
 .family-descriptions {
   color: $beige;
-
-  .h1 {
-    color: $dark-maroon;
-    }
 }
 
 
@@ -43,7 +39,7 @@ h1,
   color: $beige;
 }
 
-a .create-intructions {
+.try {
   color: $yellow;
 }
 
@@ -51,6 +47,11 @@ a .create-intructions {
 .all-cheese {
   color: $beige;
 }
+
+a {
+  color: $beige;
+}
+
 
 .navbar-default .navbar-brand,
 .dropdown {
@@ -66,4 +67,12 @@ a .create-intructions {
 
 .close {
   color: $beige;
+}
+
+#get-details-modal {
+  color: $beige;
+}
+
+#get-details-modal h2 {
+  color: $yellow;
 }

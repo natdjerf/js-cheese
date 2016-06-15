@@ -10,6 +10,14 @@ const getCheeses = function(success, failure){
   .fail(failure);
 };
 
+const getCheese = function(success, failure){
+  $.ajax({
+    url: app.server.api + '/cheeses/' + app.currentCheese.id,
+  }).done(success)
+  .fail(failure);
+};
+
+
 const addToBoard = (success, failure, data) => {
   console.log(data);
   $.ajax({
@@ -100,6 +108,7 @@ const getBoards = function(success, failure){
 
 module.exports = {
   getCheeses,
+  getCheese,
   addToBoard,
   getCurrentBoard,
   singleSavedBoard,

@@ -19,7 +19,7 @@ const cheeseHandlers = () => {
   $('.scroll-link').on('click', function(event) {
     event.preventDefault();
     var sectionID = $(this).attr("data-id");
-    cheeseUi.scrollToID('#' + sectionID, 750);
+    app.scrollToID('#' + sectionID, 750);
   });
   // scroll to top action
   $('.scroll-top').on('click', function(event) {
@@ -60,9 +60,12 @@ const cheeseHandlers = () => {
     event.preventDefault();
     let cheeseId = $(event.target).attr('data-id');
     let cheeseType = $(event.target).attr('data-type');
+    app.currentCheese.id = cheeseId;
+    cheeseApi.getCheese(cheeseUi.getCheeseSuccess, cheeseUi.failure);
     $('.add-cheese-button').attr('data-id', cheeseId);
     $('.add-cheese-button').addClass(cheeseType);
   });
+
   // add cheese - each family:
   $('#add-cheese-form').on('click', '.hard', function(event) {
     event.preventDefault();

@@ -64,7 +64,7 @@ let displayBoards = function(boards){
 let displayCheeseDetails = function(cheeses) {
   let cheeseModalTemplate = require('./templates/cheese-modal.handlebars');
   $('.view-cheese-details-body').html(cheeseModalTemplate({
-    cheeses: cheeses.cheeses
+    cheeses: cheeses
   }));
 };
 

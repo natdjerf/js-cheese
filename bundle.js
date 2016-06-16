@@ -157,13 +157,13 @@ webpackJsonp([0],[
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var server = {
-	  api: 'http://localhost:3000'
-	};
-
 	// const server = {
-	//   api: 'https://gentle-everglades-70199.herokuapp.com',
+	//   api: 'http://localhost:3000',
 	// };
+
+	var server = {
+	  api: 'https://gentle-everglades-70199.herokuapp.com'
+	};
 
 	// Board Temporary storage:
 	var currentBoard = {

@@ -1,12 +1,12 @@
 'use strict';
 
-const server = {
-  api: 'http://localhost:3000',
-};
-
 // const server = {
-//   api: 'https://gentle-everglades-70199.herokuapp.com',
+//   api: 'http://localhost:3000',
 // };
+
+const server = {
+  api: 'https://gentle-everglades-70199.herokuapp.com',
+};
 
 // Board Temporary storage:
 let currentBoard = {

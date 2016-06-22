@@ -252,6 +252,7 @@ webpackJsonp([0],[
 	  app.currentUser.token = '';
 	  app.currentUser.id = undefined;
 	  $(".cheese").addClass('hidden');
+	  $(".create-instructions").addClass('hidden');
 	  $("#sign-out-modal").modal('hide');
 	  $(".arrow-down-create").addClass('hidden');
 	  $(".dropdown").addClass('hidden');
